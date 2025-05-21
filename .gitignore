@@ -8,3 +8,10 @@
 /wp-content/themes/*
 !/wp-content/themes/vieuxmoulin
 /wp-content/themes/vieuxmoulin/public
+wp-content/themes/VieuxMoulin/includes/.DS_Store
+wp-content/themes/VieuxMoulin/resources/.DS_Store
+wp-content/themes/VieuxMoulin/resources/fonts/.DS_Store
+wp-content/themes/VieuxMoulin/resources/img/.DS_Store
+wp-content/themes/VieuxMoulin/resources/sass/.DS_Store
+wp-content/themes/VieuxMoulin/resources/sass/general/.DS_Store
+wp-content/themes/VieuxMoulin/resources/sass/settings/.DS_Store
