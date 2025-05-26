@@ -1,4 +1,3 @@
-</div>
 </main>
 <footer class="footer">
 	<h2 class="sr-only">Footer</h2>

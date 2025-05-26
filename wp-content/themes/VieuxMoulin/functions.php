@@ -83,7 +83,39 @@ add_image_size( 'blog-medium', 640, 480 );
 add_image_size( 'blog-small', 320, 240, true );
 add_image_size( 'blog-xsmall', 240, 200 );
 
+function actuality_post_type(): void
+{
+	$args = [
+		'labels' => [
+			'name' => 'Actualities',
+			'singular_name' => 'Actuality',
+		],
+		'hierarchical' => false,
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-media-default',
+		'supports' => ['title', 'thumbnail', 'editor', 'page-attributes'],
+	];
+	register_post_type('actualities', $args);
+}
 
+add_action('init', 'actuality_post_type');
+
+
+function actuality_taxonomy(): void
+{
+	$args = [
+		'labels' => [
+			'name' => 'tags',
+			'singular_name' => 'tag',
+		],
+		'public' => true,
+		'hierarchical' => true,
+	];
+	register_taxonomy('tags', ['actualities'], $args);
+}
+
+add_action('init', 'actuality_taxonomy');
 function vieuxmoulin_execute_contact_form(): void {
 	$config = [
 		'nonce_field'      => 'contact_nonce',
