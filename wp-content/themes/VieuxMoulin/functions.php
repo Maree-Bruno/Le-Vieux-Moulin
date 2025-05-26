@@ -14,7 +14,13 @@ add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'widgets' );
 
+function init_remove_support(): void {
+	remove_post_type_support( 'post', 'editor' );
+	remove_post_type_support( 'page', 'editor' );
+	remove_post_type_support( 'product', 'editor' );
+}
 
+add_action( 'init', 'init_remove_support', 100 );
 //Menus
 register_nav_menu( 'main', 'Navigation principale, en-tête du site' );
 register_nav_menu( 'footer', 'Navigation secondaire, navigation du pied-de-page' );
@@ -83,39 +89,37 @@ add_image_size( 'blog-medium', 640, 480 );
 add_image_size( 'blog-small', 320, 240, true );
 add_image_size( 'blog-xsmall', 240, 200 );
 
-function actuality_post_type(): void
-{
+function actuality_post_type(): void {
 	$args = [
-		'labels' => [
-			'name' => 'Actualities',
+		'labels'       => [
+			'name'          => 'Actualities',
 			'singular_name' => 'Actuality',
 		],
 		'hierarchical' => false,
-		'public' => true,
-		'has_archive' => true,
-		'menu_icon' => 'dashicons-media-default',
-		'supports' => ['title', 'thumbnail', 'editor', 'page-attributes'],
+		'public'       => true,
+		'has_archive'  => true,
+		'menu_icon'    => 'dashicons-media-default',
+		'supports'     => [ 'title', 'thumbnail', 'editor', 'page-attributes' ],
 	];
-	register_post_type('actualities', $args);
+	register_post_type( 'actualities', $args );
 }
 
-add_action('init', 'actuality_post_type');
+add_action( 'init', 'actuality_post_type' );
 
 
-function actuality_taxonomy(): void
-{
+function actuality_taxonomy(): void {
 	$args = [
-		'labels' => [
-			'name' => 'tags',
+		'labels'       => [
+			'name'          => 'tags',
 			'singular_name' => 'tag',
 		],
-		'public' => true,
+		'public'       => true,
 		'hierarchical' => true,
 	];
-	register_taxonomy('tags', ['actualities'], $args);
+	register_taxonomy( 'tags', [ 'actualities' ], $args );
 }
 
-add_action('init', 'actuality_taxonomy');
+add_action( 'init', 'actuality_taxonomy' );
 function vieuxmoulin_execute_contact_form(): void {
 	$config = [
 		'nonce_field'      => 'contact_nonce',
@@ -174,4 +178,56 @@ function vieuxmoulin_session_get( string $key ) {
 	return null;
 }
 
+function responsive_image( $image, $settings ): bool|string {
+	if ( empty( $image ) ) {
+		return '';
+	}
+
+	$image_id = '';
+
+	if ( is_numeric( $image ) ) {
+		// si c'est un nombre, on considère que cela s'agit d'un ID
+		$image_id = $image;
+	} elseif ( is_array( $image ) && isset( $image['ID'] ) ) {
+		// Si c'est un tableau associatif contenant la clé ID, on récupère cet ID
+		$image_id = $image['ID'];
+	} else {
+		// Générer un tag img par défaut
+	}
+
+// Récupération des informations de l'image depuis la base de données.
+	$alt        = get_post_meta( $image_id, '_wp_attachment_image_alt', true ); // Attribut alt
+	$image_post = get_post( $image_id ); // Object WP_Post de l'image
+	$title      = $image_post->post_title ?? '';
+	$name       = $image_post->post_name ?? '';
+
+// Récupération des URLS et attributs pour l'image en taille "full"
+// Wordpress génère automatiquement un srcset basé sur les tailles existantes
+	$src    = wp_get_attachment_image_url( $image_id, 'full' );
+	$srcset = wp_get_attachment_image_srcset( $image_id, 'full' );
+	$sizes  = wp_get_attachment_image_sizes( $image_id, 'full' );
+
+// Gestion de l'attribut de chargement "lazy" ou "eager" selon les paramètres.
+	$lazy = $settings['lazy'] ?? 'eager';
+
+// Gestion des class (si des class sont fournies dans $settings).
+	$class = '';
+	if ( ! empty( $settings['class'] ) ) {
+		$class = is_array( $settings['class'] ) ? implode( ' ', $settings['class'] ) : $settings['class'];
+	}
+
+	ob_start();
+	?>
+		<picture>
+			<img
+					src="<?= esc_url( $src ) ?>"
+					alt="<?= esc_attr( $alt ) ?>"
+					loading="<?= esc_attr( $lazy ) ?>"
+					srcset="<?= esc_attr( $srcset ) ?>"
+					sizes="<?= esc_attr( $sizes ) ?>"
+					class="<?= esc_attr( $class ) ?>">
+		</picture>
+	<?php
+	return ob_get_clean();
+}
 

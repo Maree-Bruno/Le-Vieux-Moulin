@@ -45,14 +45,15 @@
 								<?php endwhile; ?>
 							</div>
 							<?php endif; ?>
-							<div>
-								<?php
-								$image = get_sub_field( 'image' );
-								if ( $image ) {
-									echo wp_get_attachment_image( $image, 'medium' );
-								}
-								?>
-							</div>
+							<?php $img = get_sub_field( 'image' );
+							if ( $img ) : ?>
+								<figure>
+									<?= responsive_image( $img, [
+										'lazy'  => 'lazy',
+										'class' => '',
+									] ) ?>
+								</figure>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 				<?php endwhile; ?>
@@ -63,13 +64,12 @@
 			<?php if ( have_rows( 'partenair' ) ) : while ( have_rows( 'partenair' ) ) : the_row(); ?>
 				<?php $img = get_sub_field( 'logo' );
 				if ( $img ): ?>
-					<li class="about-knowledge-list-item">
-						<figure class="about-knowledge-list-item-fig">
-							<img class="about-knowledge-list-item-img"
-							     src="<?= esc_url( $img['url'] ); ?>"
-							     alt="<?= esc_attr( $img['alt'] ); ?>"
-							     width="<?= esc_attr( $img['width'] ); ?>"
-							     height="<?= esc_attr( $img['height'] ); ?>">
+					<li class="">
+						<figure>
+							<?= responsive_image( $img, [
+								'lazy'  => 'lazy',
+								'class' => '',
+							] ) ?>
 						</figure>
 					</li>
 				<?php endif; endwhile; endif; ?>

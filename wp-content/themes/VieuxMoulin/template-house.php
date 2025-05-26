@@ -15,12 +15,13 @@
 			<figure class="">
 				<?php
 				$image = get_sub_field( 'background_image' );
-				if ( ! empty( $image ) ):
-					$image_url = $image['sizes']['large'];
-					?>
-					<img src="<?= esc_url( $image_url ) ?>"
-					     alt="<?= esc_attr( $image['alt'] ) ?>" itemprop="image"
-					     class="single-project-content-img"/>
+				if ( ! empty( $image ) ):?>
+					<figure>
+						<?= responsive_image( $image, [
+							'lazy'  => 'lazy',
+							'class' => '',
+						] ) ?>
+					</figure>
 				<?php endif; ?>
 			</figure>
 		</section>
@@ -32,10 +33,11 @@
 				if ( $images ): ?>
 				<div class="">
 					<?php foreach ( $images as $image ): ?>
-						<figure class="">
-							<img src="<?= esc_url( $image['sizes']['blog-medium'] ); ?>"
-							     alt="<?= esc_attr( $image['alt'] ); ?>"
-							     class=""/>
+						<figure>
+							<?= responsive_image( $image, [
+								'lazy'  => 'lazy',
+								'class' => '',
+							] ) ?>
 						</figure>
 					<?php endforeach; ?>
 					<?php endif; ?>
@@ -53,9 +55,12 @@
 				if ( $images ): ?>
 					<?php foreach ( $images as $image ): ?>
 						<a href="<?= esc_url( $image['sizes']['large'] ); ?>" data-fancybox="gallery">
-							<img src="<?= esc_url( $image['sizes']['blog-medium'] ); ?>"
-							     alt="<?= esc_attr( $image['alt'] ); ?>"
-							     class=""/>
+							<figure>
+								<?= responsive_image( $image, [
+									'lazy'  => 'lazy',
+									'class' => '',
+								] ) ?>
+							</figure>
 						</a>
 					<?php endforeach; ?>
 				<?php endif; ?>
