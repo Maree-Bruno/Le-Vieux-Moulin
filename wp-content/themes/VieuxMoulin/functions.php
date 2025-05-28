@@ -192,7 +192,7 @@ function responsive_image( $image, $settings ): bool|string {
 		// Si c'est un tableau associatif contenant la clé ID, on récupère cet ID
 		$image_id = $image['ID'];
 	} else {
-		// Générer un tag img par défaut
+		return '';
 	}
 
 // Récupération des informations de l'image depuis la base de données.
@@ -205,8 +205,11 @@ function responsive_image( $image, $settings ): bool|string {
 // Wordpress génère automatiquement un srcset basé sur les tailles existantes
 	$src    = wp_get_attachment_image_url( $image_id, 'full' );
 	$srcset = wp_get_attachment_image_srcset( $image_id, 'full' );
-	$sizes  = wp_get_attachment_image_sizes( $image_id, 'full' );
+	$sizes  = $settings['custom_sizes'] ?? wp_get_attachment_image_sizes( $image_id, 'full' );
 
+	if ( empty( $settings['custom_sizes'] ) ) {
+		$sizes = '{min-width: 800px} 640px, 100dvw';
+	}
 // Gestion de l'attribut de chargement "lazy" ou "eager" selon les paramètres.
 	$lazy = $settings['lazy'] ?? 'eager';
 
@@ -218,15 +221,15 @@ function responsive_image( $image, $settings ): bool|string {
 
 	ob_start();
 	?>
-		<picture>
-			<img
-					src="<?= esc_url( $src ) ?>"
-					alt="<?= esc_attr( $alt ) ?>"
-					loading="<?= esc_attr( $lazy ) ?>"
-					srcset="<?= esc_attr( $srcset ) ?>"
-					sizes="<?= esc_attr( $sizes ) ?>"
-					class="<?= esc_attr( $class ) ?>">
-		</picture>
+	<picture>
+		<img
+				src="<?= esc_url( $src ) ?>"
+				alt="<?= esc_attr( $alt ) ?>"
+				loading="<?= esc_attr( $lazy ) ?>"
+				srcset="<?= esc_attr( $srcset ) ?>"
+				sizes="<?= esc_attr( $sizes ) ?>"
+				class="<?= esc_attr( $class ) ?>">
+	</picture>
 	<?php
 	return ob_get_clean();
 }
