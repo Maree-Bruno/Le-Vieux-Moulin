@@ -32,7 +32,7 @@
   display: inline-block;
   min-height: 3px;
   width: 25px;
-  transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background var(--animation-timing);
+  transition: opacity var(--transition), width var(--transition), rotate var(--transition), translate var(--transition), background var(--transition);
 }
 
 #burger:checked ~ .burger-wrapper > span:nth-child(2) {
@@ -56,7 +56,7 @@
 
 #burger:checked ~ .burger-wrapper {
   background: #FFF;
-  padding: 20px;
+  padding: 15px;
   border-radius: 0;
   box-shadow: none;
 }

@@ -11,7 +11,7 @@
 		      fill="#43A047"/>
 	</svg>
 	<div class="footer-container flex flex-col justify-around">
-		<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'Home' ) ) ?>" class="nav-logo footer-logo
+		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'front-page' ) ) ?>" class="nav-logo footer-logo
 		flex flex-row content-center">
 			<svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173" fill="none">
 				<path d="M158.959 10.644L152.454 9.81723C151.358 9.67796 150.357 10.4533 150.218 11.5491L148.06 28.5279C147.921 29.6237 148.696 30.6249 149.792 30.7641L156.297 31.5909C157.393 31.7302 158.394 30.9548 158.533 29.8591L160.691 12.8802C160.831 11.7845 160.055 10.7833 158.959 10.644Z"
@@ -97,11 +97,11 @@
 				<?php foreach ( vieuxmoulin_get_navigation_links( 'main' ) as $link ): ?>
 					<li><a href="<?= $link->url ?>" class="footer-nav-li"><?= $link->label ?></a></li>
 				<?php endforeach; ?>
-				<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'contact' ) ) ?>"
+				<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-contact' ) ) ?>"
 				   class="footer-nav-li" title="Vous allez être redirigé vers la page
 				   contact">Contactez-nous
 					!</a>
-				<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'donations' ) ) ?>"
+				<a href="<?= get_the_permalink(vieuxmoulin_get_template_page('template-donation')) ?>"
 				   class="footer-nav-li" title="Vous allez être redirigé vers la page de
 				   soutien">Soutenez-nous !</a>
 			</ul>
