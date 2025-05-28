@@ -1,0 +1,25 @@
+.button {
+  &-green {
+    background-color: var(--green);
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+
+  &-yellow {
+    background-color: var(--yellow);
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+
+  &-blue {
+    background-color: var(--blue);
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+
+  &-red {
+    background-color: var(--red);
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+}
