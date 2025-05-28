@@ -1,0 +1,71 @@
+.hero {
+  gap: 1em;
+
+  &-background-image {
+    background-position: center center;
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url('/wp-content/themes/VieuxMoulin/resources/img/vm-neige.jpg');
+    width: 100dvw;
+    min-height: 80dvh;
+  }
+
+  &-title {
+    color: var(--white);
+  }
+
+  &-description {
+    margin: 0 10px;
+
+  }
+
+  &-link {
+  }
+
+  &-button {
+    color: var(--white);
+    transition: scale var(--transition);
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+}
+
+.house {
+  margin: 10% 0;
+
+  &-title {
+    margin: 1em 0 1em 10px;
+  }
+
+  &-container {
+    gap: 1em;
+  }
+
+  &-link {
+    min-height: 40dvh;
+    width: 300px;
+    height: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: width var(--transition);
+    &:hover{
+      width: 95dvw;
+    }
+  }
+
+  &-text {
+    color: var(--white);
+  }
+}
+
+.edelweiss {
+  background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url("/wp-content/themes/VieuxMoulin/resources/img/edelweiss-ext2.jpg");
+  border-radius: 40px 0 0 40px;
+  align-self: flex-end;
+}
+
+.le-vieux-moulin {
+  background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url("/wp-content/themes/VieuxMoulin/resources/img/vm-1920.jpg");
+  border-radius: 0 40px 40px 0;
+}

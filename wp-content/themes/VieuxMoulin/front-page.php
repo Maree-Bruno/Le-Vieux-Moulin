@@ -9,25 +9,53 @@
 	<?php if ( have_rows( 'homepage_layout' ) ): while ( have_rows( 'homepage_layout' ) ):
 	the_row(); ?>
 	<?php if ( get_row_layout() === 'homepage_layout' ): ?>
-	<section>
-		<div class="background-image"></div>
-		<h2>Le Vieux Moulin <strong>SRG</strong></h2>
-		<div>
+	<section class="hero flex flex-col">
+		<div class="hero-background-image flex justify-center content-center">
+			<h2 class="hero-title font-bigtitle text-4xl">Le Vieux Moulin <strong class="text-lg">SRG</strong></h2>
+		</div>
+		<div class="hero-description text-base">
 			<?php the_sub_field( 'description' ); ?>
 		</div>
-		<div>
-			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-about' ) ) ?>" class="">En savoir
+		<div class="hero-link flex flex-row justify-evenly content-center">
+			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-about' ) ) ?>"
+			   class="hero-button button-red font-subtitle text-xl">En
+				savoir
 				plus</a>
 			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'archive-actualities' ) ) ?>"
-			   class="">Actualités</a>
+			   class="hero-button button-blue font-subtitle text-xl">Actualités</a>
 		</div>
 	</section>
-	<section>
-		<h2>Nos <strong>deux</strong> maison</h2>
-		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-house'))?>" class="">Le Vieux
-			Moulin</a>
-		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-house'))?>" class="">Edelweiss</a>
+	<section class="house">
+		<h2 class="house-title font-bigtitle text-3xl">Nos <strong class="brush brush-red">deux</strong> maison</h2>
+		<div class="house-container flex flex-col">
+			<?php
+			$houses = new WP_Query( [
+				'post_type' => 'houses'
+			] );
+
+			if ( $houses->have_posts() ):
+				while ( $houses->have_posts() ):
+					$houses->the_post();
+					$terms   = get_the_terms( get_the_ID(), 'tags' );
+					$classes = '';
+
+					if ( $terms && ! is_wp_error( $terms ) ) {
+						foreach ( $terms as $term ) {
+							$classes .= ' ' . sanitize_html_class( $term->slug );
+						}
+					}
+					?>
+					<a href="<?php the_permalink(); ?>" class="<?= esc_attr( trim( $classes ) ) ?> house-link flex
+					justify-center content-center"><p
+								class="house-text font-subtitle text-xl"><?=
+							the_title() ?></p></a>
+				<?php endwhile;
+			endif;
+			wp_reset_postdata();
+			?>
+		</div>
 	</section>
+
 	<section>
 		<h2>Nos <strong>dernières</strong> actualités</h2>
 
