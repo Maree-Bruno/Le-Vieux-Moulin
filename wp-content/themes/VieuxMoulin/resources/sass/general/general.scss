@@ -1,6 +1,8 @@
 .body:has(#burger:checked) {
   overflow-y: hidden;
 }
-.body{
+
+.body {
   background-color: var(--background);
+  scroll-behavior: smooth;
 }
