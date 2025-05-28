@@ -1,0 +1,50 @@
+@use '../settings/breakpoints.scss' as b;
+
+.header {
+  max-height: 50px;
+  background-color: var(--white);
+
+}
+
+.nav {
+  max-height: 50px;
+  margin: 12px;
+
+  &-logo {
+    & > svg {
+      width: 50px;
+      max-height: 50px;
+    }
+  }
+
+  &-container {
+    width: 100%;
+  }
+
+  &-list {
+    transition: translate 200ms ease-in-out;
+    translate: -150%;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 5%;
+    background-color: var(--white);
+    list-style: none;
+    @include b.desktop-up {
+      list-style: none;
+      translate: 0;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    &-button {
+      text-decoration: none;
+      color: var(--text);
+    }
+  }
+}

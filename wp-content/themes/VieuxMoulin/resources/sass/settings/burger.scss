@@ -1,0 +1,65 @@
+@use '../settings/breakpoints.scss' as b;
+
+#burger {
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  min-height: 60px;
+  min-width: 65px;
+  z-index: 9999;
+  position: relative;
+  @include b.desktop-up {
+    display: none;
+  }
+}
+
+.burger-wrapper {
+  @include b.desktop-up {
+    display: none;
+  }
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background: #FFF;
+  padding: 20px;
+}
+
+.burger-wrapper > span {
+  background-color: #000;
+  display: inline-block;
+  min-height: 3px;
+  width: 25px;
+  transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background var(--animation-timing);
+}
+
+#burger:checked ~ .burger-wrapper > span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+#burger:checked ~ .burger-wrapper span:nth-child(1) {
+  translate: 0 9px 0;
+  rotate: 45deg;
+}
+
+#burger:checked ~ .burger-wrapper span:nth-child(3) {
+  translate: 0 -6px 0;
+  rotate: -45deg;
+}
+
+#burger:checked ~ .nav-list {
+  translate: 0;
+}
+
+#burger:checked ~ .burger-wrapper {
+  background: #FFF;
+  padding: 20px;
+  border-radius: 0;
+  box-shadow: none;
+}
