@@ -1,3 +1,6 @@
+:root{
+  --transition: 300ms ease-in-out;
+}
 @keyframes slide {
   0% { transform: translateX(0); }
   100% {

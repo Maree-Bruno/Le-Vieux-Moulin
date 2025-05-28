@@ -16,15 +16,17 @@
 			<?php the_sub_field( 'description' ); ?>
 		</div>
 		<div>
-			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'about' ) ) ?>" class="">En savoir plus</a>
-			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'actualities' ) ) ?>" class="">Actualités</a>
+			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-about' ) ) ?>" class="">En savoir
+				plus</a>
+			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'archive-actualities' ) ) ?>"
+			   class="">Actualités</a>
 		</div>
 	</section>
 	<section>
 		<h2>Nos <strong>deux</strong> maison</h2>
-		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'vieuxmoulin' ) ) ?>" class="">Le Vieux
+		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-house'))?>" class="">Le Vieux
 			Moulin</a>
-		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'edelweiss' ) ) ?>" class="">Edelweiss</a>
+		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-house'))?>" class="">Edelweiss</a>
 	</section>
 	<section>
 		<h2>Nos <strong>dernières</strong> actualités</h2>

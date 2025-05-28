@@ -3,28 +3,43 @@
 .header {
   max-height: 50px;
   background-color: var(--white);
-
+  @include b.desktop-up {
+    min-height: 150px;
+    max-height: 150px;
+  }
 }
 
 .nav {
   max-height: 50px;
   margin: 12px;
+  @include b.desktop-up {
+    min-height: 150px;
+    max-height: 150px;
+  }
 
   &-logo {
     & > svg {
       width: 50px;
       max-height: 50px;
+      @include b.desktop-up {
+        width: 150px;
+        min-height: 150px;
+        max-height: 150px;
+      }
     }
   }
 
   &-container {
     width: 100%;
+    @include b.desktop-up {
+      margin-left: 5%;
+    }
   }
 
   &-list {
-    transition: translate 200ms ease-in-out;
+    transition: translate var(--transition);
     translate: -150%;
-    width: 100%;
+    min-width: 100vw;
     min-height: 100vh;
     position: absolute;
     top: 0;
@@ -35,16 +50,39 @@
     @include b.desktop-up {
       list-style: none;
       translate: 0;
+      min-height: 0;
+      min-width: 0;
+      position: relative;
+      flex-direction: row;
+      padding-top: 0;
+      width: 100%;
     }
 
     &-link {
       text-decoration: none;
       color: var(--text);
+      transition: scale var(--transition);
+      &:hover {
+        scale: 1.2;
+      }
     }
 
     &-button {
       text-decoration: none;
       color: var(--text);
+      transition: scale var(--transition);
+      &:hover {
+        scale: 1.2;
+      }
+    }
+
+    &-icon {
+      & > svg path {
+        transition: fill var(--transition);
+        &:hover {
+          fill: #4460A0;
+        }
+      }
     }
   }
 }
