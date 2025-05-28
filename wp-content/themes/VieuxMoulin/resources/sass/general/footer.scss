@@ -1,0 +1,83 @@
+@use '../settings/breakpoints.scss' as b;
+
+.footer {
+  color: var(--white);
+
+  &-deco {
+    width: 100%;
+    height: 110%;
+    display: block;
+    margin: 0;
+
+  }
+  &-logo{
+    gap: 1em;
+    margin: 12px 36px;
+  }
+  &-name{
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  &-container {
+    padding: 1em;
+    gap: 1em;
+    background-color: var(--green);
+    @include b.desktop-up {
+      flex-direction: row;
+    }
+
+  }
+
+  &-informations {
+    margin: 12px 36px;
+    gap: 0.5em;
+    width: fit-content;
+
+    &-title {
+
+    }
+
+    &-address {
+
+    }
+
+    &-phone {
+      text-decoration: none;
+      color: var(--white);
+
+    }
+
+    &-email {
+      text-decoration: none;
+      color: var(--white);
+
+    }
+
+    &-iban {
+
+    }
+  }
+
+  &-nav {
+    margin: 12px 36px;
+    gap: 0.5em;
+    width: fit-content;
+
+    &-title {
+
+    }
+
+    &-ul {
+      gap: 0.5em;
+
+    }
+
+    &-li {
+      text-decoration: none;
+      color: var(--white);
+
+    }
+  }
+
+}

@@ -17,11 +17,11 @@
 	/>
 
 </head>
-<body class="body">
+<body class="body font-text">
 <?php wp_body_open(); ?>
 <header class="header">
 	<h1 class="sr-only"><?php bloginfo( 'name' ); ?></h1>
-	<nav class="nav flex flex-row content-center">
+	<nav class="nav flex flex-row content-center justify-evenly">
 		<h2 class="sr-only">Main navigation</h2>
 		<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'Home' ) ) ?>" class="nav-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173" fill="none">

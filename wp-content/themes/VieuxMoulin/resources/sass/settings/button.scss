@@ -1,25 +1,27 @@
+@use '../settings/breakpoints.scss' as b;
+
 .button {
   &-green {
     background-color: var(--green);
-    padding: 4px 8px;
     border-radius: 10px;
+    padding: 8px 16px;
   }
 
   &-yellow {
     background-color: var(--yellow);
-    padding: 4px 8px;
     border-radius: 10px;
+    padding: 8px 16px;
   }
 
   &-blue {
     background-color: var(--blue);
-    padding: 4px 8px;
     border-radius: 10px;
+    padding: 8px 16px;
   }
 
   &-red {
     background-color: var(--red);
-    padding: 4px 8px;
     border-radius: 10px;
+    padding: 8px 16px;
   }
 }

@@ -1,7 +1,8 @@
 @use '../settings/breakpoints.scss' as b;
 
 .header {
-  max-height: 50px;
+  min-height: 50px;
+  max-height: 150px;
   background-color: var(--white);
   @include b.desktop-up {
     min-height: 150px;
@@ -10,8 +11,8 @@
 }
 
 .nav {
+  padding: 1em;
   max-height: 50px;
-  margin: 12px;
   @include b.desktop-up {
     min-height: 150px;
     max-height: 150px;
@@ -19,8 +20,8 @@
 
   &-logo {
     & > svg {
-      width: 50px;
-      max-height: 50px;
+      width: 65px;
+      max-height: 60px;
       @include b.desktop-up {
         width: 150px;
         min-height: 150px;
@@ -62,6 +63,7 @@
       text-decoration: none;
       color: var(--text);
       transition: scale var(--transition);
+
       &:hover {
         scale: 1.2;
       }
@@ -71,6 +73,7 @@
       text-decoration: none;
       color: var(--text);
       transition: scale var(--transition);
+
       &:hover {
         scale: 1.2;
       }
@@ -79,6 +82,7 @@
     &-icon {
       & > svg path {
         transition: fill var(--transition);
+
         &:hover {
           fill: #4460A0;
         }
