@@ -1,6 +1,5 @@
 .hero {
   gap: 1em;
-
   &-background-image {
     background-position: center center;
     background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url('/wp-content/themes/VieuxMoulin/resources/img/vm-neige.jpg');
@@ -49,7 +48,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     transition: width var(--transition);
-    &:hover{
+
+    &:hover {
       width: 95dvw;
     }
   }
@@ -70,3 +70,52 @@
   border-radius: 0 40px 40px 0;
 }
 
+.foster-family {
+  margin: 10% 10px;
+  gap: 1em;
+  &-title {
+
+  }
+
+  &-description {
+    & > p {
+      @extend .text-sm;
+    }
+  }
+
+  &-ul {
+    counter-reset: step 0;
+
+  }
+
+  &-li {
+    max-width:200px;
+    &:nth-child(even) {
+      align-self: flex-end;
+    }
+    &-title {
+      counter-increment: step;
+
+      &:before {
+        content: counter(step)". ";
+        color: var(--yellow);
+        font-family: "Fredoka Bold", sans-serif;
+        @extend .text-3xl;
+      }
+
+    }
+
+    &-description {
+      &>p{
+        @extend .text-sm;
+      }
+    }
+  }
+
+  &-conclusion {
+    &>p{
+      text-align: center;
+      @extend .text-sm;
+    }
+  }
+}
