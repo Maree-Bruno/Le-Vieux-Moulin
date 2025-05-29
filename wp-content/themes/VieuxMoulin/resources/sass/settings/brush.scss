@@ -1,0 +1,22 @@
+.brush {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &-red {
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/brush-stroke-red.svg");
+  }
+
+
+  &-green {
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/brush-stroke-green.svg");
+  }
+
+  &-blue {
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/brush-stroke-blue.svg");
+  }
+
+  &-yellow {
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/brush-stroke-yellow.svg");
+  }
+}

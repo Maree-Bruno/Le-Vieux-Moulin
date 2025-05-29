@@ -21,44 +21,54 @@
 			   class="hero-button button-red font-subtitle text-xl">En
 				savoir
 				plus</a>
-			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'archive-actualities' ) ) ?>"
+			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'archive-actualities.scss' ) ) ?>"
 			   class="hero-button button-blue font-subtitle text-xl">Actualités</a>
 		</div>
 	</section>
 	<section class="house">
 		<h2 class="house-title font-bigtitle text-3xl">Nos <strong class="brush brush-red">deux</strong> maison</h2>
-		<div class="house-container flex flex-col">
-			<?php
-			$houses = new WP_Query( [
-				'post_type' => 'houses'
-			] );
-
-			if ( $houses->have_posts() ):
-				while ( $houses->have_posts() ):
-					$houses->the_post();
-					$terms   = get_the_terms( get_the_ID(), 'tags' );
-					$classes = '';
-
-					if ( $terms && ! is_wp_error( $terms ) ) {
-						foreach ( $terms as $term ) {
-							$classes .= ' ' . sanitize_html_class( $term->slug );
-						}
-					}
-					?>
-					<a href="<?php the_permalink(); ?>" class="<?= esc_attr( trim( $classes ) ) ?> house-link flex
-					justify-center content-center"><p
-								class="house-text font-subtitle text-xl"><?=
-							the_title() ?></p></a>
-				<?php endwhile;
-			endif;
-			wp_reset_postdata();
-			?>
-		</div>
+		<?php get_template_part( 'includes/section', 'house' ) ?>
 	</section>
 
-	<section>
-		<h2>Nos <strong>dernières</strong> actualités</h2>
+	<section class="actualities flex flex-col">
+		<h2 class="actualities-title font-bigtitle text-3xl">Nos <strong class="brush brush-blue">dernières</strong>
+			actualités</h2>
+		<div class="actualities-container flex flex-row">
+		<?php
+		$args              = [
+			'post_type'      => 'actualities',
+			'posts_per_page' => 3,
+		];
+		$actualities_query = new WP_Query( $args );
+		?>
 
+		<?php if ( $actualities_query->have_posts() ) : ?>
+			<?php while ( $actualities_query->have_posts() ) : $actualities_query->the_post(); ?>
+				<article class="actualities-article flex flex-col">
+					<a class="actualities-article-link" href="<?php the_permalink(); ?>">
+						<?php if ( has_post_thumbnail() ): ?>
+							<?= get_the_post_thumbnail( null, 'blog-small', [ 'class' => 'actualities-article-image' ]
+							) ?>
+						<?php endif; ?>
+						<div class="actualities-article-container flex flex-row justify-between">
+							<h3 class="actualities-article-title font-subtitle">
+								<?php the_title(); ?>
+							</h3>
+							<time class="actualities-article-date font-subtitle">
+								<?= get_the_date( 'd/m/Y' ) ?>
+							</time>
+						</div>
+						<div class="actualities-article-text"><?php the_field( 'resume' ) ?></div>
+
+					</a>
+				</article>
+			<?php endwhile; ?>
+		<?php else: ?>
+			<p>C'est vide</p>
+		<?php endif; ?>
+
+		<?php wp_reset_postdata(); ?>
+		</div>
 	</section>
 	<section>
 		<h2>Comment devenir <strong>famille d’acceuil</strong> ?</h2>
