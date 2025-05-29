@@ -10,13 +10,30 @@
     margin: 0;
 
   }
-  &-logo{
+
+  &-logo {
+    width: fit-content;
     gap: 1em;
     margin: 12px 36px;
+
+    & > svg path {
+      transition: fill var(--transition);
+
+    }
+
+    &:hover svg path {
+      fill: var(--yellow);
+    }
   }
-  &-name{
+
+  &-name {
     text-decoration: none;
     color: var(--white);
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--yellow);
+    }
   }
 
   &-container {
@@ -27,6 +44,12 @@
       flex-direction: row;
     }
 
+  }
+
+  &-content {
+    @include b.tablet-up {
+      flex-direction: row;
+    }
   }
 
   &-informations {
@@ -45,13 +68,21 @@
     &-phone {
       text-decoration: none;
       color: var(--white);
+      transition: color var(--transition);
 
+      &:hover {
+        color: var(--yellow);
+      }
     }
 
     &-email {
       text-decoration: none;
       color: var(--white);
+      transition: color var(--transition);
 
+      &:hover {
+        color: var(--yellow);
+      }
     }
 
     &-iban {
@@ -76,7 +107,11 @@
     &-li {
       text-decoration: none;
       color: var(--white);
+      transition: color var(--transition);
 
+      &:hover {
+        color: var(--yellow);
+      }
     }
   }
 

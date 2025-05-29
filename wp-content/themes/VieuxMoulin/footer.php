@@ -81,31 +81,34 @@
 			</svg>
 			<p class="footer-name font-subtitle ">Le Vieux Moulin <strong>SRG</strong></p>
 		</a>
-		<div class="footer-informations flex flex-col">
-			<h3 class="font-bigtitle footer-informations-title text-2xl">Nos informations</h3>
-			<address class="footer-informations-address">
-				Rue des Vennes n°1, <br>6637 Fauvillers
-			</address>
-			<a href="tel:063601150" title="Notre numéro de téléphone" class="footer-informations-phone">063/60.11.50</a>
-			<a href="mailto:saaelevieux.moulin@gmail.com" title="Vous allez être redirigé vers votre application mail en
+		<div class="footer-content flex flex-col justify-around">
+			<div class="footer-informations flex flex-col">
+				<h3 class="font-bigtitle footer-informations-title text-2xl">Nos informations</h3>
+				<address class="footer-informations-address">
+					Rue des Vennes n°1, <br>6637 Fauvillers
+				</address>
+				<a href="tel:063601150" title="Notre numéro de téléphone"
+				   class="footer-informations-phone">063/60.11.50</a>
+				<a href="mailto:saaelevieux.moulin@gmail.com" title="Vous allez être redirigé vers votre application mail en
 		cliquant ici" class="footer-informations-email">saaelevieux.moulin@gmail.com</a>
-			<p title="Notre compte bancaire" class="footer-informations-iban">BE93 7965 5262 8667</p>
-		</div>
-		<nav class="footer-nav flex flex-col">
-			<h3 class="footer-nav-title font-bigtitle text-2xl">Navigation</h3>
-			<ul class="footer-nav-ul flex flex-col">
-				<?php foreach ( vieuxmoulin_get_navigation_links( 'main' ) as $link ): ?>
-					<li><a href="<?= $link->url ?>" class="footer-nav-li"><?= $link->label ?></a></li>
-				<?php endforeach; ?>
-				<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-contact' ) ) ?>"
-				   class="footer-nav-li" title="Vous allez être redirigé vers la page
+				<p title="Notre compte bancaire" class="footer-informations-iban">BE93 7965 5262 8667</p>
+			</div>
+			<nav class="footer-nav flex flex-col">
+				<h3 class="footer-nav-title font-bigtitle text-2xl">Navigation</h3>
+				<ul class="footer-nav-ul flex flex-col">
+					<?php foreach ( vieuxmoulin_get_navigation_links( 'main' ) as $link ): ?>
+						<li><a href="<?= $link->url ?>" class="footer-nav-li"><?= $link->label ?></a></li>
+					<?php endforeach; ?>
+					<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-contact' ) ) ?>"
+					   class="footer-nav-li" title="Vous allez être redirigé vers la page
 				   contact">Contactez-nous
-					!</a>
-				<a href="<?= get_the_permalink(vieuxmoulin_get_template_page('template-donation')) ?>"
-				   class="footer-nav-li" title="Vous allez être redirigé vers la page de
+						!</a>
+					<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-donation' ) ) ?>"
+					   class="footer-nav-li" title="Vous allez être redirigé vers la page de
 				   soutien">Soutenez-nous !</a>
-			</ul>
-		</nav>
+				</ul>
+			</nav>
+		</div>
 	</div>
 	<div class="footer-lower">
 

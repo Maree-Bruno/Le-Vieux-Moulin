@@ -1,5 +1,9 @@
+@use '../settings/breakpoints.scss' as b;
 .hero {
   gap: 1em;
+  @include b.tablet-up{
+    gap: 1.5em;
+  }
   &-background-image {
     background-position: center center;
     background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url('/wp-content/themes/VieuxMoulin/resources/img/vm-neige.jpg');
@@ -13,6 +17,9 @@
 
   &-description {
     margin: 0 10px;
+    @include b.tablet-up{
+      margin: 0 5%;
+    }
 
   }
 
@@ -34,6 +41,7 @@
 
   &-title {
     margin: 1em 0 1em 10px;
+
   }
 
   &-container {
@@ -42,7 +50,7 @@
 
   &-link {
     min-height: 40dvh;
-    width: 300px;
+    width: 80dvw;
     height: auto;
     background-position: center center;
     background-repeat: no-repeat;
@@ -80,6 +88,9 @@
   &-description {
     & > p {
       @extend .text-sm;
+      @include b.tablet-up{
+       font-size: 1em;
+      }
     }
   }
 
@@ -90,6 +101,9 @@
 
   &-li {
     max-width:200px;
+    @include b.tablet-up{
+      max-width: 350px;
+    }
     &:nth-child(even) {
       align-self: flex-end;
     }
@@ -116,6 +130,9 @@
     &>p{
       text-align: center;
       @extend .text-sm;
+      @include b.tablet-up{
+        font-size: 1em;
+      }
     }
   }
 }
