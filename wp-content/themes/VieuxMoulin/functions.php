@@ -13,11 +13,18 @@ require_once( __DIR__ . '/src/ContactForm.php' );
 add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'widgets' );
+function my_remove_admin_menus(): void {
+	remove_menu_page( 'edit-comments.php' );
+}
+
+add_action( 'admin_menu', 'my_remove_admin_menus' );
 
 function init_remove_support(): void {
 	remove_post_type_support( 'post', 'editor' );
 	remove_post_type_support( 'page', 'editor' );
 	remove_post_type_support( 'product', 'editor' );
+	remove_post_type_support( 'houses', 'editor' );
+	remove_post_type_support( 'actualities', 'editor' );
 }
 
 add_action( 'init', 'init_remove_support', 100 );
@@ -120,6 +127,37 @@ function actuality_taxonomy(): void {
 }
 
 add_action( 'init', 'actuality_taxonomy' );
+function house_post_type(): void {
+	$args = [
+		'labels'       => [
+			'name'          => 'Houses',
+			'singular_name' => 'House',
+		],
+		'hierarchical' => false,
+		'public'       => true,
+		'has_archive'  => true,
+		'menu_icon'    => 'dashicons-admin-multisite',
+		'supports'     => [ 'title', 'thumbnail', 'editor', 'page-attributes' ],
+	];
+	register_post_type( 'houses', $args );
+}
+
+add_action( 'init', 'house_post_type' );
+
+
+function house_taxonomy(): void {
+	$args = [
+		'labels'       => [
+			'name'          => 'tags',
+			'singular_name' => 'tag',
+		],
+		'public'       => true,
+		'hierarchical' => true,
+	];
+	register_taxonomy( 'tags', [ 'houses' ], $args );
+}
+
+add_action( 'init', 'house_taxonomy' );
 function vieuxmoulin_execute_contact_form(): void {
 	$config = [
 		'nonce_field'      => 'contact_nonce',

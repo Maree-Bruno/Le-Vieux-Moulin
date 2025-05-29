@@ -1,0 +1,138 @@
+@use '../settings/breakpoints.scss' as b;
+.hero {
+  gap: 1em;
+  @include b.tablet-up{
+    gap: 1.5em;
+  }
+  &-background-image {
+    background-position: center center;
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url('/wp-content/themes/VieuxMoulin/resources/img/vm-neige.jpg');
+    width: 100dvw;
+    min-height: 80dvh;
+  }
+
+  &-title {
+    color: var(--white);
+  }
+
+  &-description {
+    margin: 0 10px;
+    @include b.tablet-up{
+      margin: 0 5%;
+    }
+
+  }
+
+  &-link {
+  }
+
+  &-button {
+    color: var(--white);
+    transition: scale var(--transition);
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+}
+
+.house {
+  margin: 10% 0;
+
+  &-title {
+    margin: 1em 0 1em 10px;
+
+  }
+
+  &-container {
+    gap: 1em;
+  }
+
+  &-link {
+    min-height: 40dvh;
+    width: 80dvw;
+    height: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: width var(--transition);
+
+    &:hover {
+      width: 95dvw;
+    }
+  }
+
+  &-text {
+    color: var(--white);
+  }
+}
+
+.edelweiss {
+  background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url("/wp-content/themes/VieuxMoulin/resources/img/edelweiss-ext2.jpg");
+  border-radius: 40px 0 0 40px;
+  align-self: flex-end;
+}
+
+.le-vieux-moulin {
+  background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url("/wp-content/themes/VieuxMoulin/resources/img/vm-1920.jpg");
+  border-radius: 0 40px 40px 0;
+}
+
+.foster-family {
+  margin: 10% 10px;
+  gap: 1em;
+  &-title {
+
+  }
+
+  &-description {
+    & > p {
+      @extend .text-sm;
+      @include b.tablet-up{
+       font-size: 1em;
+      }
+    }
+  }
+
+  &-ul {
+    counter-reset: step 0;
+
+  }
+
+  &-li {
+    max-width:200px;
+    @include b.tablet-up{
+      max-width: 350px;
+    }
+    &:nth-child(even) {
+      align-self: flex-end;
+    }
+    &-title {
+      counter-increment: step;
+
+      &:before {
+        content: counter(step)". ";
+        color: var(--yellow);
+        font-family: "Fredoka Bold", sans-serif;
+        @extend .text-3xl;
+      }
+
+    }
+
+    &-description {
+      &>p{
+        @extend .text-sm;
+      }
+    }
+  }
+
+  &-conclusion {
+    &>p{
+      text-align: center;
+      @extend .text-sm;
+      @include b.tablet-up{
+        font-size: 1em;
+      }
+    }
+  }
+}

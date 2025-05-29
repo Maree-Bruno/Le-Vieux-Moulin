@@ -4,15 +4,8 @@
  */
 ?>
 <?php get_header(); ?>
-<section>
-	<h2>Nos <strong>deux</strong> maison</h2>
-	<?php
-	$houses = new WP_Query( [
-		'post_type' => 'houses'
-	] );
-	if ( $houses->have_posts() ): while ( $houses->have_posts() ):
-		$houses->the_post(); ?>
-		<a href="<?php the_permalink(); ?>" class=""><?= the_title()?></a>
-	<?php endwhile; endif; ?>
+<section class="house">
+	<h2 class="house-title font-bigtitle text-3xl">Nos <strong class="brush brush-red">deux</strong> maison</h2>
+	<?php get_template_part( 'includes/section', 'house' ) ?>
 </section>
 <?php get_footer(); ?>

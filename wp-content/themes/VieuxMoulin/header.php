@@ -23,7 +23,7 @@
 	<h1 class="sr-only"><?php bloginfo( 'name' ); ?></h1>
 	<nav class="nav flex flex-row content-center justify-evenly">
 		<h2 class="sr-only">Main navigation</h2>
-		<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'Home' ) ) ?>" class="nav-logo">
+		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'front-page' ) ) ?>" class="nav-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173" fill="none">
 				<path d="M158.959 10.5809L152.454 9.75412C151.358 9.61485 150.357 10.3902 150.218 11.486L148.06 28.4648C147.921 29.5606 148.696 30.5617 149.792 30.701L156.297 31.5278C157.393 31.6671 158.394 30.8917 158.533 29.796L160.691 12.8171C160.831 11.7214 160.055 10.7202 158.959 10.5809Z"
 				      fill="#FFD000"/>
@@ -91,13 +91,13 @@
 			</svg>
 		</a>
 		<div class="nav-container flex justify-end">
-				<label for="burger" class="sr-only">Burger menu</label>
-				<input type="checkbox" id="burger" name="burger">
-				<div class="burger-wrapper">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
+			<label for="burger" class="sr-only">Burger menu</label>
+			<input type="checkbox" id="burger" name="burger">
+			<div class="burger-wrapper">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 			<ul class="nav-list flex flex-col justify-around content-center">
 				<?php foreach ( vieuxmoulin_get_navigation_links( 'main' ) as $link ): ?>
 					<li class="nav-list-item">
@@ -107,11 +107,11 @@
 						</a>
 					</li>
 				<?php endforeach; ?>
-				<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'contact' ) ) ?>"
+				<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-contact' ) ) ?>"
 				   class="nav-list-button button-green text-xl font-subtitle" title="Vous allez être redirigé vers la page
 				   contact">Contactez-nous
 					!</a>
-				<a href="<?php get_permalink( vieuxmoulin_get_template_page( 'donations' ) ) ?>"
+				<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-donation' ) ) ?>"
 				   class="nav-list-button button-yellow text-xl font-subtitle" title="Vous allez être redirigé vers la page de
 				   soutien">Soutenez-nous !</a>
 				<a href="https://www.facebook.com/people/Vieux-Moulin-Strainchamps/61551842080809/?_rdr"
