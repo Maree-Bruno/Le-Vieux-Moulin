@@ -109,9 +109,10 @@
 				</ul>
 			</nav>
 		</div>
-		<article class="footer-lower">
-			<h3 class="sr-only">Mentions légales</h3>
-			<div class="flex flex-row justify-between content-center">
+	</article>
+	<article class="footer-lower">
+		<h3 class="sr-only">Mentions légales</h3>
+		<div class="footer-lower-content flex flex-row justify-between content-center">
 			<small class="footer-lower-copyright text-xs">
 				© 2025 Bruno Marée
 			</small>
@@ -121,8 +122,7 @@
 				   mentions
 				   légales">Mentions légales</a>
 			</small>
-			</div>
-		</article>
+		</div>
 	</article>
 
 </footer>

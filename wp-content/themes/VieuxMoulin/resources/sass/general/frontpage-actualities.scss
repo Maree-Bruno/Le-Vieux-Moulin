@@ -1,0 +1,94 @@
+@use '../settings/breakpoints.scss' as b;
+.actualities {
+  margin: 10% 10px;
+  gap: 1em;
+  @include b.desktop-up {
+  gap: 2em;
+  margin: 5% 80px;
+  }
+  &-title {
+
+  }
+
+  &-container{
+    overflow-x: scroll;
+    gap: 2em;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    @include b.desktop-up {
+      justify-content: space-evenly;
+    }
+  }
+
+  &-article {
+    width: 300px;
+    background-color: var(--white);
+    max-height: 300px;
+    border-radius: 24px;
+    padding-bottom: 1em;
+    transition: box-shadow var(--transition);
+    &:hover{
+      box-shadow:inset 0px 0px 0px 3px var(--text);
+    }
+    @include b.desktop-up {
+      min-width: 700px;
+      min-height: 700px;
+    }
+    &-link {
+
+    }
+
+    &-image {
+      min-width: 300px;
+      max-width: 300px;
+      max-height: 100px;
+      object-fit: cover;
+      border-radius: 24px 24px 0 0;
+      @include b.desktop-up {
+        min-width: 700px;
+        min-height: 300px;
+      }
+    }
+
+    &-container {
+      padding: 0 1em 1em;
+    }
+
+    &-title {
+      color: var(--text);
+      @include b.desktop-up {
+       font-size: 2rem;
+        margin: 10% 0;
+      }
+    }
+
+    &-date {
+      color: var(--text);
+      @include b.desktop-up {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-text {
+      padding: 0 1em 1em;
+
+      @include b.desktop-up {
+        align-self: center;
+      }
+      & > p {
+        color: var(--text);
+        @extend .text-sm;
+        max-width: 300px;
+        max-height: 200px;
+        @include b.desktop-up {
+          font-size: 1.5rem;
+          line-height: 2rem;
+          max-width: 700px;
+          max-height: 300px;
+          align-self: center;
+        }
+      }
+    }
+  }
+}
