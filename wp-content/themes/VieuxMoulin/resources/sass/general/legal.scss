@@ -1,0 +1,36 @@
+@use '../settings/breakpoints.scss' as b;
+
+.legal {
+  gap: 1em;
+  margin: 10% 10px;
+  &-title {
+
+  }
+
+  &-description {
+
+  }
+
+  &-ul {
+    counter-reset: step 0;
+    gap:1.5em;
+  }
+
+  &-li {
+    &-title {
+      counter-increment: step;
+
+      &:before {
+        content: counter(step) ". ";
+        color: var(--text);
+        font-family: "Fredoka Bold", sans-serif;
+        @extend .text-3xl;
+      }
+
+    }
+
+    &-description {
+
+    }
+  }
+}
