@@ -1,4 +1,4 @@
-<div class="house-container flex flex-col">
+<div class="house-container flex flex-row">
 	<?php
 	$houses = new WP_Query( [
 		'post_type' => 'houses'

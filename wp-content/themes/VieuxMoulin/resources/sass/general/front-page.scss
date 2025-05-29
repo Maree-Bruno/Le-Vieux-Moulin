@@ -1,34 +1,54 @@
 @use '../settings/breakpoints.scss' as b;
+
 .hero {
   gap: 1em;
-  @include b.tablet-up{
+  @include b.tablet-up {
     gap: 1.5em;
   }
+
   &-background-image {
-    background-position: center center;
     background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url('/wp-content/themes/VieuxMoulin/resources/img/vm-neige.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100dvw;
     min-height: 80dvh;
+
   }
 
   &-title {
     color: var(--white);
+    @include b.desktop-up {
+      font-size: 3.75rem;
+      line-height: 1;
+    }
   }
 
   &-description {
     margin: 0 10px;
-    @include b.tablet-up{
+    @extend .text-base;
+    @include b.tablet-up {
       margin: 0 5%;
+    }
+    @include b.desktop-up {
+      max-width: 1000px;
+      font-size: 1.5rem;
+      line-height: 2rem;
     }
 
   }
 
   &-link {
+    width: 100%;
   }
 
   &-button {
     color: var(--white);
     transition: scale var(--transition);
+    @include b.desktop-up {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
 
     &:hover {
       scale: 1.2;
@@ -37,11 +57,16 @@
 }
 
 .house {
-  margin: 10% 0;
+  margin: 10% 0 0 0;
 
   &-title {
     margin: 1em 0 1em 10px;
+    @include b.desktop-up {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+      margin: 0 0 2% 80px;
 
+    }
   }
 
   &-container {
@@ -56,6 +81,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     transition: width var(--transition);
+    @include b.desktop-up {
+      min-height: 50dvh;
+      width: 60dvw;
+    }
 
     &:hover {
       width: 95dvw;
@@ -64,6 +93,10 @@
 
   &-text {
     color: var(--white);
+    @include b.desktop-up {
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
   }
 }
 
@@ -81,37 +114,59 @@
 .foster-family {
   margin: 10% 10px;
   gap: 1em;
+  @include b.desktop-up {
+    gap: 2em;
+    margin: 5% 80px;
+  }
+
   &-title {
 
   }
 
   &-description {
+    @include b.desktop-up {
+      max-width: 700px;
+    }
     & > p {
       @extend .text-sm;
-      @include b.tablet-up{
-       font-size: 1em;
+      @include b.tablet-up {
+        font-size: 1rem;
+      }
+      @include b.desktop-up {
+        font-size: 1.2rem;
       }
     }
   }
 
   &-ul {
     counter-reset: step 0;
-
+    margin-top: 5%;
   }
 
   &-li {
-    max-width:200px;
-    @include b.tablet-up{
+    max-width: 250px;
+    @include b.tablet-up {
       max-width: 350px;
     }
+    @include b.desktop-up {
+      max-width: 800px;
+    }
+
     &:nth-child(even) {
       align-self: flex-end;
+      margin-right: 10%;
     }
+
+    &:nth-child(odd) {
+      align-self: flex-start;
+      margin-left: 10%;
+    }
+
     &-title {
       counter-increment: step;
 
       &:before {
-        content: counter(step)". ";
+        content: counter(step) ". ";
         color: var(--yellow);
         font-family: "Fredoka Bold", sans-serif;
         @extend .text-3xl;
@@ -120,18 +175,32 @@
     }
 
     &-description {
-      &>p{
+      & > p {
         @extend .text-sm;
+        @include b.desktop-up {
+          max-width: 700px;
+          font-size: 1.2rem;
+        }
       }
     }
   }
 
   &-conclusion {
-    &>p{
+    margin-top: 5%;
+    @include b.desktop-up {
+      align-self: center;
+    }
+
+    & > p {
       text-align: center;
       @extend .text-sm;
-      @include b.tablet-up{
+      @include b.tablet-up {
         font-size: 1em;
+      }
+      @include b.desktop-up {
+        max-width: 700px;
+        font-size: 1.2rem;
+        align-self: center;
       }
     }
   }

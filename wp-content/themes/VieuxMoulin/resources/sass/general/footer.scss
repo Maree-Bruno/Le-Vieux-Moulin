@@ -49,6 +49,7 @@
   &-content {
     @include b.tablet-up {
       flex-direction: row;
+      width: 100%;
     }
   }
 
@@ -115,11 +116,13 @@
     }
   }
   &-lower{
-    &:before{
-      content: '';
-      display: block;
-      height: 1px;
-      background-color: var(--white);
+    background-color: var(--green);
+    display: block;
+    margin: 0;
+    padding: 1em;
+    &-content{
+      border-top: var(--white) solid 2px;
+      margin: 0 5%;
     }
     &-copyright{
 

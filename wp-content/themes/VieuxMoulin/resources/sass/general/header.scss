@@ -66,12 +66,12 @@
 
       &:hover {
         scale: 1.2;
+
       }
     }
 
     &-button {
       text-decoration: none;
-      color: var(--text);
       transition: scale var(--transition);
 
       &:hover {

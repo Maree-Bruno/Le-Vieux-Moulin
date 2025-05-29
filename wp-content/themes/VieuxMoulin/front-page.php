@@ -9,20 +9,20 @@
 	<?php if ( have_rows( 'homepage_layout' ) ): while ( have_rows( 'homepage_layout' ) ):
 	the_row(); ?>
 	<?php if ( get_row_layout() === 'homepage_layout' ): ?>
-	<section class="hero flex flex-col">
+	<section class="hero flex flex-col content-center">
 		<div class="hero-background-image flex justify-center content-center">
-			<h2 class="hero-title font-bigtitle text-4xl">Le Vieux Moulin <strong class="text-lg">SRG</strong></h2>
+			<h2 class="hero-title font-bigtitle text-3xl">Le Vieux Moulin <strong class="text-xl">SRG</strong></h2>
 		</div>
-		<div class="hero-description text-base">
+		<div class="hero-description text-xl">
 			<?php the_sub_field( 'description' ); ?>
 		</div>
 		<div class="hero-link flex flex-row justify-evenly content-center">
 			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-about' ) ) ?>"
-			   class="hero-button button-red font-subtitle text-xl">En
+			   class="hero-button button button-red font-subtitle text-xl">En
 				savoir
 				plus</a>
-			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'archive-actualities.scss' ) ) ?>"
-			   class="hero-button button-blue font-subtitle text-xl">Actualités</a>
+			<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'frontpage-actualities.scss' ) ) ?>"
+			   class="hero-button button button-blue font-subtitle text-xl">Actualités</a>
 		</div>
 	</section>
 	<section class="house">
@@ -61,7 +61,7 @@
 									<?= get_the_date( 'd/m/Y' ) ?>
 								</time>
 							</div>
-							<div class="actualities-article-text"><?php the_field( 'resume' ) ?></div>
+							<div class="actualities-article-text flex justify-center content-center"><?php the_field( 'resume' ) ?></div>
 
 						</a>
 					</article>

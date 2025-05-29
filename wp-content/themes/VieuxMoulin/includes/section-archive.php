@@ -21,7 +21,7 @@ $actualities_query = new WP_Query( $args );
 						<?= get_the_date( 'd/m/Y' ) ?>
 					</time>
 				</div>
-				<div class="actualities-article-text"><?php the_field( 'resume' ) ?></div>
+				<div class="actualities-article-text "><?php the_field( 'resume' ) ?></div>
 
 			</a>
 		</article>

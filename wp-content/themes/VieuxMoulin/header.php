@@ -108,11 +108,14 @@
 					</li>
 				<?php endforeach; ?>
 				<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-contact' ) ) ?>"
-				   class="nav-list-button button-green text-xl font-subtitle" title="Vous allez être redirigé vers la page
+				   class="nav-list-button button button-green text-xl font-subtitle" title="Vous allez être redirigé vers
+				   la page
 				   contact">Contactez-nous
 					!</a>
 				<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-donation' ) ) ?>"
-				   class="nav-list-button button-yellow text-xl font-subtitle" title="Vous allez être redirigé vers la page de
+				   class="nav-list-button button button-yellow text-xl font-subtitle" title="Vous allez être redirigé
+				   vers
+				   la page de
 				   soutien">Soutenez-nous !</a>
 				<a href="https://www.facebook.com/people/Vieux-Moulin-Strainchamps/61551842080809/?_rdr"
 				   title="Vous allez être redirigé vers la page Facebook" class="nav-list-icon">
