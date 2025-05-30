@@ -2,7 +2,7 @@ export const settings = {
     minRadius: 20,
     maxRadius: 40,
     minSpeed: 1,
-    maxSpeed: 5,
+    maxSpeed: 3,
     canvasID: "bubbleCanvas",
     bubbles: 10,
     red: '#FF6B6B',

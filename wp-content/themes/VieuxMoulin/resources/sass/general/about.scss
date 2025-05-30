@@ -1,0 +1,161 @@
+@use '../settings/breakpoints.scss' as b;
+
+.about {
+  margin: 0 10px 2em 10px;
+  gap: 1em;
+
+  &-title {
+    margin: 5% 10px;
+
+  }
+
+  &-content {
+    gap: 1em;
+  }
+
+  &-description {
+    & > p {
+      @extend .text-sm;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  &-button {
+    max-width: fit-content;
+  }
+
+  &-image {
+    max-width: 100%;
+    border-radius: 40px;
+  }
+}
+
+.value {
+  margin: 0 10px 5% 10px;
+  gap: 1.5em;
+
+  &-description {
+    gap: 1em;
+
+    & > p {
+      font-size: 0.825rem;
+
+      & > strong {
+        font-family: "Fredoka SemiBold", sans-serif;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.objectieves {
+  margin: 0 10px 5% 10px;
+
+  &-description {
+    & > p {
+      font-size: 0.825rem;
+    }
+
+    & > ul {
+      margin-top: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      & > li {
+        font-size: 0.825rem;
+
+      }
+    }
+  }
+}
+
+.daily-life {
+  margin: 0 10px 2em 10px;
+
+  &-title {
+
+  }
+
+  &-description {
+    & > p {
+      font-size: 0.825rem;
+      margin-bottom: 1em;
+
+      &:nth-child(1) {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+.routine {
+  margin: 0 10px 2em 10px;
+
+  &-block {
+  }
+  &-fig{
+
+  }
+  &-image {
+    max-width: 100%;
+    border-radius: 40px;
+    &-left {
+
+    }
+
+    &-right {
+
+    }
+  }
+  &-content{
+    gap: 1em;
+    margin: 1em 0;
+    &-title{
+
+    }
+    &-activity{
+
+      &-time{
+
+      }
+      &-title{
+
+      }
+      &-description{
+        &>p{
+          font-size: 0.825rem;
+        }
+      }
+    }
+  }
+}
+
+.partner{
+  padding: 1em 2em;
+  overflow: hidden;
+  @include b.mobile {
+    margin: 0;
+  }
+  &-title{
+    margin-bottom: 1em;
+  }
+  &-ul{
+    gap: 2em;
+    animation: slide var(--slide-timing);
+    overflow: hidden;
+    min-width: fit-content;
+    @include b.mobile {
+      overflow: hidden;
+    }
+  }
+  &-li{
+
+  }
+  &-fig{
+
+  }
+  &-image{
+    max-width: 100px;
+  }
+}

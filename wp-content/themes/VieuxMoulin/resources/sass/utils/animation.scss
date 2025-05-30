@@ -1,5 +1,6 @@
 :root{
   --transition: 300ms ease-in-out;
+  --slide-timing: 30s linear infinite;
 }
 @keyframes slide {
   0% { transform: translateX(0); }
