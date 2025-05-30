@@ -6,10 +6,17 @@
   @include b.tablet-up {
     flex-direction: row;
   }
+  @include b.desktop-up {
+    margin: 5% 80px;
+  }
 
   &-title {
     margin: 5% 10px;
-
+    @include b.desktop-up {
+      margin: 5% 80px;
+      font-size: 3.5rem;
+      line-height: 1;
+    }
   }
 
   &-content {
@@ -24,6 +31,10 @@
     & > p {
       @extend .text-sm;
       margin-bottom: 0.5em;
+      @include b.desktop-up {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
     }
   }
 
@@ -43,6 +54,9 @@
     flex-direction: row;
     gap: 1em;
   }
+  @include b.desktop-up {
+    margin: 5% 80px;
+  }
 }
 
 .value {
@@ -51,6 +65,13 @@
   @include b.tablet-up {
     max-width: 50%;
     gap: 0.5em;
+  }
+
+  &-title {
+    @include b.desktop-up {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
   }
 
   &-description {
@@ -62,10 +83,18 @@
 
     & > p {
       font-size: 0.825rem;
+      @include b.desktop-up {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
 
       & > strong {
         font-family: "Fredoka SemiBold", sans-serif;
         font-size: 1rem;
+        @include b.desktop-up {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
       }
     }
   }
@@ -77,9 +106,20 @@
     max-width: 50%;
   }
 
+  &-title {
+    @include b.desktop-up {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+  }
+
   &-description {
     & > p {
       font-size: 0.825rem;
+      @include b.desktop-up {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
     }
 
     & > ul {
@@ -91,9 +131,13 @@
         gap: 1em;
       }
 
+
       & > li {
         font-size: 0.825rem;
-
+        @include b.desktop-up {
+          font-size: 1.2rem;
+          line-height: 2rem;
+        }
       }
     }
   }
@@ -101,15 +145,25 @@
 
 .daily-life {
   margin: 0 10px 2em 10px;
+  @include b.desktop-up {
+    margin: 5% 80px 0 80px;
+  }
 
   &-title {
-
+    @include b.desktop-up {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
   }
 
   &-description {
     & > p {
       font-size: 0.825rem;
       margin-bottom: 1em;
+      @include b.desktop-up {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
 
       &:nth-child(1) {
         margin-top: 1em;
@@ -120,57 +174,47 @@
 
 .routine {
   margin: 0 10px 2em 10px;
+  @include b.desktop-up {
+    gap: 2em;
+  }
 
   &-block {
     flex-direction: column-reverse;
 
     @include b.tablet-up {
-      display: flex;
       align-items: center;
+    }
+    @include b.desktop-up {
+      gap: 1em;
     }
   }
 
   &-fig {
     flex: 1;
     margin: 0;
-
-    @include b.tablet-up {
-      max-width: 50%;
-    }
+    
   }
 
   &-image {
     max-width: 100%;
     border-radius: 40px;
     height: auto;
+    @include b.desktop-up {
+      max-width: 640px;
+      height: auto;
+    }
 
     &-left {
       @include b.tablet-up {
         flex-direction: row;
 
-        .routine-fig {
-          order: 0;
-          padding-right: 2em;
-        }
-
-        .routine-content {
-          order: 1;
-        }
       }
     }
 
     &-right {
       @include b.tablet-up {
-        flex-direction: row;
+        flex-direction: row-reverse;
 
-        .routine-fig {
-          order: 1;
-          padding-left: 2em;
-        }
-
-        .routine-content {
-          order: 0;
-        }
       }
     }
   }
@@ -180,16 +224,43 @@
     margin: 1em 0;
     flex: 1;
 
-    &-title {}
+    &-title {
+      @include b.desktop-up {
+        font-size: 1.8rem;
+        line-height: 2rem;
+      }
+    }
 
     &-activity {
-      &-time {}
+      &-time {
+        @include b.desktop-up {
+          font-size: 1.2rem;
+          line-height: 2rem;
+        }
+      }
 
-      &-title {}
+      &-separation {
+        @include b.desktop-up {
+          font-size: 1.2rem;
+          line-height: 2rem;
+        }
+      }
+
+      &-title {
+        @include b.desktop-up {
+          font-size: 1.2rem;
+          line-height: 2rem;
+        }
+      }
 
       &-description {
         & > p {
           font-size: 0.825rem;
+          @include b.desktop-up {
+            font-size: 1rem;
+            line-height: 1.5rem;
+
+          }
         }
       }
     }
@@ -205,7 +276,7 @@
   }
 
   &-title {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
   }
 
   &-ul {

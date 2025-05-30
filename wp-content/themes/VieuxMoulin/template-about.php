@@ -26,23 +26,23 @@
 	</section>
 	<div class="value-objectives flex flex-col justify-between">
 		<section class="value flex flex-col">
-			<h3 class="value-title font-bigtitle text-2xl">Nos <strong class="brush brush-blue
-			font-brush text-3xl">valeurs</strong>
+			<h3 class="value-title font-bigtitle text-2xl">Nos <strong class="brush font-brush text-4xl
+		brush-blue">valeurs</strong>
 				éducatives</h3>
 			<div class="value-description flex flex-col"><?php the_field( 'educational_values' ) ?></div>
 		</section>
 		<section class="objectives">
-			<h3 class="objectives-title font-bigtitle text-2xl">Nos <strong class="brush brush-green
-			font-brush text-3xl">objectifs</strong></h3>
+			<h3 class="objectives-title font-bigtitle text-2xl">Nos <strong class="brush font-brush text-4xl
+		brush-green">objectifs</strong></h3>
 			<div class="objectives-description"><?php the_field( 'objectives' ) ?></div>
 		</section>
 	</div>
 	<section class="daily-life">
 		<h3 class="daily-life-title font-bigtitle text-2xl">Vie au <strong class="brush brush-yellow
-			font-brush text-3xl">quotidien</strong></h3>
+			font-brush text-4xl">quotidien</strong></h3>
 		<div class="daily-life-description"><?php the_field( 'daily_life' ) ?></div>
 		<?php if ( have_rows( 'routine' ) ) : ?>
-			<section class="routine">
+			<section class="routine flex flex-col">
 				<?php while ( have_rows( 'routine' ) ) : the_row(); ?>
 					<?php
 					$layout       = get_row_layout();
@@ -69,7 +69,8 @@
 													the_sub_field(
 														'hour' );
 													?></time>
-												<small class="font-subtitle">&nbsp;-&nbsp;</small>
+												<small class="routine-content-activity-separation font-subtitle">&nbsp;
+													-&nbsp;</small>
 												<h5 class="routine-content-activity-title font-subtitle"><?php the_sub_field( 'activity_title' ); ?></h5>
 											</div>
 											<div class="routine-content-activity-description"><?php the_sub_field( 'activity' );
