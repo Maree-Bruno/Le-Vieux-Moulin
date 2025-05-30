@@ -1,5 +1,11 @@
+@use '../settings/breakpoints.scss' as b;
+
 .button {
   color: var(--white);
+  @include b.desktop-up {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
   &-green {
     background-color: var(--green);
     border-radius: 10px;
