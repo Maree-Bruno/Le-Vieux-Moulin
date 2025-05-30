@@ -3,6 +3,9 @@
 .about {
   margin: 0 10px 2em 10px;
   gap: 1em;
+  @include b.tablet-up {
+    flex-direction: row;
+  }
 
   &-title {
     margin: 5% 10px;
@@ -11,9 +14,13 @@
 
   &-content {
     gap: 1em;
+    @include b.tablet-up {
+      max-width: 50%;
+    }
   }
 
   &-description {
+
     & > p {
       @extend .text-sm;
       margin-bottom: 0.5em;
@@ -27,15 +34,31 @@
   &-image {
     max-width: 100%;
     border-radius: 40px;
+
+  }
+}
+
+.value-objectives {
+  @include b.tablet-up {
+    flex-direction: row;
+    gap: 1em;
   }
 }
 
 .value {
   margin: 0 10px 5% 10px;
   gap: 1.5em;
+  @include b.tablet-up {
+    max-width: 50%;
+    gap: 0.5em;
+  }
 
   &-description {
     gap: 1em;
+    @include b.tablet-up {
+      gap: 0.5em;
+      max-width: 80%;
+    }
 
     & > p {
       font-size: 0.825rem;
@@ -48,8 +71,11 @@
   }
 }
 
-.objectieves {
+.objectives {
   margin: 0 10px 5% 10px;
+  @include b.tablet-up {
+    max-width: 50%;
+  }
 
   &-description {
     & > p {
@@ -61,6 +87,9 @@
       display: flex;
       flex-direction: column;
       gap: 0.5em;
+      @include b.tablet-up {
+        gap: 1em;
+      }
 
       & > li {
         font-size: 0.825rem;
@@ -93,37 +122,73 @@
   margin: 0 10px 2em 10px;
 
   &-block {
-  }
-  &-fig{
+    flex-direction: column-reverse;
 
+    @include b.tablet-up {
+      display: flex;
+      align-items: center;
+    }
   }
+
+  &-fig {
+    flex: 1;
+    margin: 0;
+
+    @include b.tablet-up {
+      max-width: 50%;
+    }
+  }
+
   &-image {
     max-width: 100%;
     border-radius: 40px;
-    &-left {
+    height: auto;
 
+    &-left {
+      @include b.tablet-up {
+        flex-direction: row;
+
+        .routine-fig {
+          order: 0;
+          padding-right: 2em;
+        }
+
+        .routine-content {
+          order: 1;
+        }
+      }
     }
 
     &-right {
+      @include b.tablet-up {
+        flex-direction: row;
 
+        .routine-fig {
+          order: 1;
+          padding-left: 2em;
+        }
+
+        .routine-content {
+          order: 0;
+        }
+      }
     }
   }
-  &-content{
+
+  &-content {
     gap: 1em;
     margin: 1em 0;
-    &-title{
+    flex: 1;
 
-    }
-    &-activity{
+    &-title {}
 
-      &-time{
+    &-activity {
+      &-time {}
 
-      }
-      &-title{
+      &-title {}
 
-      }
-      &-description{
-        &>p{
+      &-description {
+        & > p {
           font-size: 0.825rem;
         }
       }
@@ -131,16 +196,19 @@
   }
 }
 
-.partner{
+
+.partner {
   padding: 1em 2em;
   overflow: hidden;
   @include b.mobile {
     margin: 0;
   }
-  &-title{
+
+  &-title {
     margin-bottom: 1em;
   }
-  &-ul{
+
+  &-ul {
     gap: 2em;
     animation: slide var(--slide-timing);
     overflow: hidden;
@@ -149,13 +217,16 @@
       overflow: hidden;
     }
   }
-  &-li{
+
+  &-li {
 
   }
-  &-fig{
+
+  &-fig {
 
   }
-  &-image{
+
+  &-image {
     max-width: 100px;
   }
 }

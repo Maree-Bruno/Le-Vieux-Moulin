@@ -24,17 +24,17 @@
 			</figure>
 		<?php endif; ?>
 	</section>
-	<div class="flex flex-col justify-between">
+	<div class="value-objectives flex flex-col justify-between">
 		<section class="value flex flex-col">
 			<h3 class="value-title font-bigtitle text-2xl">Nos <strong class="brush brush-blue
 			font-brush text-3xl">valeurs</strong>
 				éducatives</h3>
 			<div class="value-description flex flex-col"><?php the_field( 'educational_values' ) ?></div>
 		</section>
-		<section class="objectieves">
-			<h3 class="objectieves-title font-bigtitle text-2xl">Nos <strong class="brush brush-green
+		<section class="objectives">
+			<h3 class="objectives-title font-bigtitle text-2xl">Nos <strong class="brush brush-green
 			font-brush text-3xl">objectifs</strong></h3>
-			<div class="objectieves-description"><?php the_field( 'objectives' ) ?></div>
+			<div class="objectives-description"><?php the_field( 'objectives' ) ?></div>
 		</section>
 	</div>
 	<section class="daily-life">
@@ -48,9 +48,15 @@
 					$layout       = get_row_layout();
 					if ( $layout === 'morning_routine' || $layout === 'afternoon_routine' || $layout === 'evening_routine' ) :
 						$img = get_sub_field( 'image' );
-						$position = get_sub_field( 'image_position' ); // 'left' ou 'right'
+						$position = get_sub_field( 'image_position' );
 						?>
-						<div class="routine-block flex flex-col routine-image-<?php echo esc_attr( $position ); ?>">
+						<div class="routine-block flex flex-col-reverse routine-image-<?php echo esc_attr( $position );
+						?>">
+							<?php if ( ( $position === 'right' && $img ) || ( $position === 'left' && $img ) ) : ?>
+								<figure class="routine-fig">
+									<?= responsive_image( $img, [ 'lazy' => 'lazy', 'class' => 'routine-image' ] ) ?>
+								</figure>
+							<?php endif; ?>
 							<div class="routine-content flex flex-col">
 								<h4 class="routine-content-title font-bigtitle text-xl"><?php the_sub_field( 'title'
 									);
@@ -72,11 +78,7 @@
 									<?php endwhile; ?>
 								<?php endif; ?>
 							</div>
-							<?php if ( ( $position === 'right' && $img ) || ( $position === 'left' && $img ) ) : ?>
-								<figure class="routine-fig">
-									<?= responsive_image( $img, [ 'lazy' => 'lazy', 'class' => 'routine-image' ] ) ?>
-								</figure>
-							<?php endif; ?>
+
 						</div>
 					<?php endif; ?>
 				<?php endwhile; ?>
