@@ -130,4 +130,4 @@
 	</nav>
 </header>
 <main class="main">
-
+<canvas id="bubbleCanvas" class="bubbleCanvas"></canvas>
