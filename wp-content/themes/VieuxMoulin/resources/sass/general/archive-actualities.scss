@@ -1,24 +1,24 @@
 @use '../settings/breakpoints.scss' as b;
-.frontpage-actualities {
-  margin: 10% 10px;
+
+.archive-actualities {
+  margin: 5% 10px 2em 10px;
   gap: 1em;
   @include b.desktop-up {
-  gap: 2em;
-  margin: 5% 80px;
+    gap: 2em;
+    margin: 5% 80px;
   }
+
   &-title {
     @include b.desktop-up {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
+      font-size: 3.5rem;
+      line-height: 1;
     }
   }
 
-  &-container{
-    overflow-x: scroll;
-    gap: 2em;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+  &-container {
+    @include b.tablet-up {
+      justify-content: space-evenly;
+    }
     @include b.desktop-up {
       justify-content: space-evenly;
     }
@@ -31,15 +31,34 @@
     border-radius: 24px;
     padding-bottom: 1em;
     transition: box-shadow var(--transition);
-    &:hover{
-      box-shadow:inset 0px 0px 0px 3px var(--text);
+    margin-bottom: 2em;
+    @include b.tablet-up {
+      width: 100%;
+      max-height: none;
+      flex-direction: column;
+      padding-bottom: 0;
     }
-    @include b.desktop-up {
-      min-width: 600px;
-      min-height: 700px;
-    }
-    &-link {
 
+    &:hover {
+      box-shadow: inset 0px 0px 0px 3px var(--text);
+    }
+
+    @include b.tablet-up {
+      flex-direction: row;
+    }
+
+    &-link {
+      @include b.tablet-up {
+        flex-direction: row;
+        width: 100%;
+      }
+    }
+
+    &-content {
+      @include b.tablet-up {
+        width: 100%;
+        justify-content: space-evenly;
+      }
     }
 
     &-image {
@@ -48,21 +67,25 @@
       max-height: 100px;
       object-fit: cover;
       border-radius: 24px 24px 0 0;
-      @include b.desktop-up {
-        min-width: 600px;
-        min-height: 300px;
+      @include b.tablet-up {
+       border-radius: 24px 0 0 24px;
+        max-height: none;
+        height: auto;
       }
     }
 
     &-container {
       padding: 0 1em 1em;
+      @include b.tablet-up {
+        justify-content: space-between;
+        margin-top: 1em;
+      }
     }
 
     &-title {
       color: var(--text);
       @include b.desktop-up {
-       font-size: 2rem;
-        margin: 10% 0;
+        font-size: 2rem;
       }
     }
 
@@ -76,20 +99,23 @@
     &-text {
       padding: 0 1em 1em;
 
-      @include b.desktop-up {
-        align-self: center;
-      }
       & > p {
         color: var(--text);
         @extend .text-sm;
         max-width: 300px;
         max-height: 200px;
+        @include b.tablet-up {
+          flex-direction: row;
+          max-width: 700px;
+          max-height: none;
+        }
         @include b.desktop-up {
           font-size: 1.4rem;
           line-height: 2rem;
-          max-width: 700px;
           max-height: 300px;
           align-self: center;
+          width: 100%;
+          min-width: 100%;
         }
       }
     }
