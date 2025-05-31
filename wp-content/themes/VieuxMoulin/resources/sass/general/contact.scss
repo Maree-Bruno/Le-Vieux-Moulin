@@ -1,0 +1,118 @@
+@use '../settings/breakpoints.scss' as b;
+
+.contact {
+  margin: 5% 10px 2em 10px;
+  gap: 1em;
+  @include b.desktop-up {
+    flex-direction: row;
+    margin: 3% 80px 5% 80px;
+    gap: 2rem;
+  }
+
+  &-content {
+    @include b.desktop-up {
+      max-width: 600px;
+      min-width: 600px;
+    }
+
+    &-title {
+      margin-bottom: 2%;
+    }
+
+    &-description {
+
+      & > p {
+        @extend .text-sm;
+        @include b.tablet-up {
+          max-width: 70%;
+        }
+        @include b.desktop-up {
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
+      }
+    }
+  }
+
+  &-form {
+    margin-top: 5%;
+    @include b.desktop-up {
+      margin-top: 0;
+
+    }
+
+    &-validation {
+      @include b.desktop-up {
+        width: 100%;
+
+      }
+    }
+
+    &-fieldset {
+      gap: 2em;
+
+    }
+
+    &-container {
+      gap: 2em;
+      @include b.tablet-up {
+        width: 70%;
+      }
+      @include b.desktop-up {
+        width: 100%;
+        gap: 1em;
+
+      }
+
+      &-informations {
+        gap: 2em;
+        @include b.desktop-up {
+          gap: 1em;
+        }
+
+        &-label {
+          margin-bottom: 2%;
+          @include b.desktop-up {
+            font-size: 1.5rem;
+            line-height: 2rem;
+          }
+        }
+
+        &-input {
+          border: none;
+          min-height: 40px;
+          border-radius: 40px;
+          padding: 10px 15px;
+          @include b.desktop-up {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+          }
+        }
+
+        &-textarea {
+          border: none;
+          border-radius: 10px;
+          padding: 10px 15px;
+          @include b.desktop-up {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.success {
+  &-text {
+    color: var(--green);
+
+  }
+}
+
+.error {
+  &-text {
+    color: var(--red);
+  }
+}

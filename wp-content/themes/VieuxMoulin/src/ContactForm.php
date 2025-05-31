@@ -93,7 +93,7 @@ class ContactForm
 
     protected function getRequiredErrorMessage(string $field): string
     {
-        return 'This field ' . $field . ' is required.';
+        return 'Ce champ est requis.';
     }
 
     protected function checkEmail(string $field, mixed $value): bool
@@ -103,7 +103,7 @@ class ContactForm
 
     protected function getEmailErrorMessage(string $field): string
     {
-        return 'Please put a valid email address.';
+        return 'Mettez une adresse e-mail valide s’il vous plait.';
     }
 
     /**
