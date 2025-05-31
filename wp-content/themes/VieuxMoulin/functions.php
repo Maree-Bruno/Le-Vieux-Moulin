@@ -175,7 +175,6 @@ function vieuxmoulin_execute_contact_form(): void {
 			'firstname' => [ 'required' ],
 			'lastname'  => [ 'required' ],
 			'email'     => [ 'required', 'email' ],
-			'message'   => [ 'required' ],
 		] )
 		->save(
 			title: fn( $data ) => $data['firstname'] . ' ' . $data['lastname'] . ' <' . $data['email'] . '>',

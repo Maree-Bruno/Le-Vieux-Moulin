@@ -43,6 +43,7 @@
 		<div class="daily-life-description"><?php the_field( 'daily_life' ) ?></div>
 		<?php if ( have_rows( 'routine' ) ) : ?>
 			<section class="routine flex flex-col">
+				<h3 class="sr-only">Routine des enfants dans la maison</h3>
 				<?php while ( have_rows( 'routine' ) ) : the_row(); ?>
 					<?php
 					$layout       = get_row_layout();

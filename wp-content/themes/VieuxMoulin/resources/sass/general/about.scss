@@ -175,7 +175,7 @@
 .routine {
   margin: 0 10px 2em 10px;
   @include b.desktop-up {
-    gap: 2em;
+    gap: 6rem;
   }
 
   &-block {
