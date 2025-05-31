@@ -26,20 +26,20 @@
 	</section>
 	<div class="value-objectives flex flex-col justify-between">
 		<section class="value flex flex-col">
-			<h3 class="value-title font-bigtitle text-2xl">Nos <strong class="brush font-brush text-4xl
+			<h3 class="value-title font-bigtitle text-2xl">Nos <strong class="brush font-brush brush-bigtitle
 		brush-blue">valeurs</strong>
 				éducatives</h3>
 			<div class="value-description flex flex-col"><?php the_field( 'educational_values' ) ?></div>
 		</section>
 		<section class="objectives">
-			<h3 class="objectives-title font-bigtitle text-2xl">Nos <strong class="brush font-brush text-4xl
+			<h3 class="objectives-title font-bigtitle text-2xl">Nos <strong class="brush font-brush brush-bigtitle
 		brush-green">objectifs</strong></h3>
 			<div class="objectives-description"><?php the_field( 'objectives' ) ?></div>
 		</section>
 	</div>
 	<section class="daily-life">
 		<h3 class="daily-life-title font-bigtitle text-2xl">Vie au <strong class="brush brush-yellow
-			font-brush text-4xl">quotidien</strong></h3>
+			font-brush brush-bigtitle">quotidien</strong></h3>
 		<div class="daily-life-description"><?php the_field( 'daily_life' ) ?></div>
 		<?php if ( have_rows( 'routine' ) ) : ?>
 			<section class="routine flex flex-col">
@@ -89,7 +89,7 @@
 
 		<section class="partner">
 			<h3 class="partner-title font-bigtitle text-2xl">Nos <strong class="brush brush-red
-			font-brush text-3xl">partenaires</strong></h3>
+			font-brush brush-bigtitle">partenaires</strong></h3>
 			<ul class="partner-ul flex flex-row content-center">
 				<?php if ( have_rows( 'partenair' ) ) : while ( have_rows( 'partenair' ) ) :
 					the_row(); ?>

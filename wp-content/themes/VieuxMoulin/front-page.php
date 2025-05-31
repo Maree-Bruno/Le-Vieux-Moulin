@@ -26,16 +26,16 @@
 		</div>
 	</section>
 	<section class="house">
-		<h2 class="house-title font-bigtitle text-3xl">Nos deux <strong class="brush font-brush text-4xl
+		<h2 class="house-title font-bigtitle text-3xl">Nos deux <strong class="brush font-brush brush-bigtitle
 		brush-red brush-bigtitle">maisons</strong></h2>
 		<?php get_template_part( 'includes/section', 'house' ) ?>
 	</section>
 
-	<section class="actualities flex flex-col">
-		<h2 class="actualities-title font-bigtitle text-3xl">Nos <strong class="brush font-brush text-4xl
+	<section class="frontpage-actualities flex flex-col">
+		<h2 class="frontpage-actualities-title font-bigtitle text-3xl">Nos <strong class="brush font-brush brush-bigtitle
 		brush-blue">dernières</strong>
 			actualités</h2>
-		<div class="actualities-container flex flex-row">
+		<div class="frontpage-actualities-container flex flex-row">
 			<?php
 			$args              = [
 				'post_type'      => 'actualities',
@@ -46,22 +46,24 @@
 
 			<?php if ( $actualities_query->have_posts() ) : ?>
 				<?php while ( $actualities_query->have_posts() ) : $actualities_query->the_post(); ?>
-					<article class="actualities-article flex flex-col">
-						<a class="actualities-article-link" href="<?php the_permalink(); ?>">
+					<article class="frontpage-actualities-article flex flex-col">
+						<a class="frontpage-actualities-article-link" href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ): ?>
 								<?= get_the_post_thumbnail( null, 'blog-small',
-									[ 'class' => 'actualities-article-image' ]
+									[ 'class' => 'frontpage-actualities-article-image' ]
 								) ?>
 							<?php endif; ?>
-							<div class="actualities-article-container flex flex-row justify-between">
-								<h3 class="actualities-article-title font-subtitle">
+							<div class="frontpage-actualities-article-container flex flex-row justify-between">
+								<h3 class="frontpage-actualities-article-title font-subtitle">
 									<?php the_title(); ?>
 								</h3>
-								<time class="actualities-article-date font-subtitle">
+								<time class="frontpage-actualities-article-date font-subtitle">
 									<?= get_the_date( 'd/m/Y' ) ?>
 								</time>
 							</div>
-							<div class="actualities-article-text flex justify-center content-center"><?php the_field( 'resume' ) ?></div>
+							<div class="frontpage-actualities-article-text flex justify-center content-center"><?php
+								the_field
+								( 'resume' ) ?></div>
 
 						</a>
 					</article>
@@ -75,7 +77,7 @@
 	</section>
 	<section class="foster-family flex flex-col">
 		<h2 class="foster-family-title font-bigtitle text-3xl">Comment devenir <strong class="brush font-brush
-		tex4-4xl brush-yellow">famille&nbsp;d’acceuil</strong>&nbsp; ?</h2>
+		brush-bigtitle brush-yellow">famille&nbsp;d’acceuil</strong>&nbsp; ?</h2>
 		<div class="foster-family-description">
 			<?php the_sub_field( 'description_welcome_family' ); ?>
 		</div>

@@ -4,7 +4,7 @@
  */
 ?>
 <?php get_header(); ?>
-	<h2 class="donation-title font-bigtitle text-3xl">Pourquoi nous faire des <strong class="brush font-brush text-4xl
+	<h2 class="donation-title font-bigtitle text-3xl">Pourquoi nous faire des <strong class="brush font-brush
 		brush-yellow brush-bigtitle">dons</strong> ?</h2>
 	<section class="donation flex flex-col-reverse">
 		<div class="donation-content">
@@ -41,7 +41,8 @@
 							<section class="donation-types-container flex flex-col content-center">
 								<div class="donation-types-content flex flex-col">
 									<h4 class="donation-types-content-title">
-										<strong class="brush font-brush text-4xl brush-<?php echo $brush_color; ?>">
+										<strong class="brush font-brush brush-<?php echo $brush_color; ?>
+										brush-bigtitle">
 											<?php the_sub_field( 'title' ); ?>
 										</strong>
 									</h4>
