@@ -49,6 +49,7 @@
     padding-top: 5%;
     background-color: var(--white);
     list-style: none;
+    z-index: 2;
     @include b.desktop-up {
       list-style: none;
       translate: 0;

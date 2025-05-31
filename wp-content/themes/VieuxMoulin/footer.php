@@ -92,6 +92,15 @@
 				<a href="mailto:saaelevieux.moulin@gmail.com" title="Vous allez être redirigé vers votre application mail en
 		cliquant ici" class="footer-informations-email">saaelevieux.moulin@gmail.com</a>
 				<p title="Notre compte bancaire" class="footer-informations-iban">BE93 7965 5262 8667</p>
+				<a href="https://www.facebook.com/people/Vieux-Moulin-Strainchamps/61551842080809/?_rdr"
+				   title="Vous allez être redirigé vers la page Facebook" class="nav-list-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="41" height="42" viewBox="0 0 41 42"
+					     fill="none">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+						      d="M21.8994 41.5H2.26288C1.01276 41.5 0 40.4866 0 39.237V2.76287C0 1.51292 1.01292 0.5 2.26288 0.5H38.7373C39.9869 0.5 41 1.51292 41 2.76287V39.237C41 40.4868 39.9868 41.5 38.7373 41.5H28.2894V25.6225H33.6187L34.4167 19.4348H28.2894V15.4843C28.2894 13.6929 28.7869 12.472 31.3559 12.472L34.6325 12.4706V6.93623C34.0658 6.86082 32.1208 6.69234 29.8579 6.69234C25.1337 6.69234 21.8994 9.57597 21.8994 14.8715V19.4348H16.5564V25.6225H21.8994V41.5Z"
+						      fill="white"/>
+					</svg>
+				</a>
 			</div>
 			<nav class="footer-nav flex flex-col">
 				<h3 class="footer-nav-title font-bigtitle text-2xl">Navigation</h3>
