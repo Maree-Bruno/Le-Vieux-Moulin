@@ -1,0 +1,116 @@
+@use '../settings/breakpoints.scss' as b;
+
+.single-actuality {
+  margin: 0 10px 2em 10px;
+  @include b.desktop-up {
+    margin: 5% 80px;
+  }
+  &-title {
+    margin: 5% 0;
+    @include b.desktop-up {
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+  }
+
+  &-container {
+    @include b.tablet-up {
+      gap: 2em;
+    }
+  }
+
+  &-content {
+    gap: 1em;
+    @include b.desktop-up {
+     gap: 2em;
+    }
+
+  }
+
+  &-fig {
+
+  }
+
+  &-image {
+    width: 100%;
+    border-radius: 40px;
+    @include b.tablet-up {
+      max-width: 400px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+    @include b.desktop-up {
+      max-width: none;
+      min-width: 400px;
+    }
+
+    &-left {
+      @include b.tablet-up {
+        flex-direction: row;
+
+      }
+    }
+
+    &-right {
+      @include b.tablet-up {
+        flex-direction: row-reverse;
+
+      }
+    }
+  }
+
+  &-text {
+    margin: 0 10px 1em 10px;
+
+    & > p {
+      @extend .text-sm;
+      margin-bottom: 0.5em;
+      @include b.tablet-up {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        min-width: 300px;
+        max-width: 450px;
+      }
+      @include b.desktop-up {
+        max-width: none;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+
+      }
+    }
+  }
+
+  &-gallery {
+    &-title {
+      margin-bottom: 1rem;
+    }
+
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    &-fig {
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1 / 1;
+    }
+
+    &-link {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 40px;
+      display: block;
+    }
+  }
+
+}
