@@ -1,4 +1,5 @@
 @use '../settings/breakpoints.scss' as b;
+
 .brush {
   background-position: center center;
   background-repeat: no-repeat;
@@ -21,7 +22,11 @@
   &-yellow {
     background-image: url("/wp-content/themes/VieuxMoulin/resources/img/brush-stroke-yellow.svg");
   }
-  &-bigtitle{
-    @extend .text-6xl;
+
+  &-bigtitle {
+
+    font-size: 3.5rem;
+    line-height: 1;
+
   }
 }

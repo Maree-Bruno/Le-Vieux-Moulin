@@ -27,7 +27,7 @@
 	</section>
 	<section class="house">
 		<h2 class="house-title font-bigtitle text-3xl">Nos deux <strong class="brush font-brush text-4xl
-		brush-red">maisons</strong></h2>
+		brush-red brush-bigtitle">maisons</strong></h2>
 		<?php get_template_part( 'includes/section', 'house' ) ?>
 	</section>
 
