@@ -1,0 +1,105 @@
+@use '../settings/breakpoints.scss' as b;
+
+.donation {
+  margin: 0 10px 2em 10px;
+  gap: 1em;
+  @include b.tablet-up {
+    flex-direction: row;
+  }
+  @include b.desktop-up {
+    margin: 5% 80px;
+    gap: 2rem;
+  }
+
+  &-title {
+    margin: 5% 10px;
+    @include b.desktop-up {
+      margin: 5% 80px;
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+  }
+
+  &-description {
+    @include b.desktop-up {
+      max-width:90%;
+    }
+    & > p {
+      @extend .text-sm;
+      margin-bottom: 0.5em;
+      @include b.desktop-up {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+    }
+  }
+
+  &-content {
+
+  }
+
+  &-fig {
+
+  }
+
+  &-image {
+    width: 100%;
+  }
+
+  &-types {
+    margin: 0 10px 2em 10px;
+    gap: 1em;
+    @include b.tablet-up {
+      flex-direction: row;
+    }
+    @include b.desktop-up {
+      margin: 5% 80px;
+    }
+
+    &-title {
+
+    }
+
+    &-container {
+      @include b.tablet-up {
+        flex-direction: row;
+      }
+    }
+
+    &-content {
+      margin: 0 10px 2em 10px;
+      gap: 1em;
+
+      &:nth-child(1) {
+        margin-top: 2rem;
+      }
+
+      @include b.desktop-up {
+        margin: 5% 80px;
+      }
+
+      &-title {
+
+      }
+
+      &-description {
+        & > p {
+          @extend .text-sm;
+          margin-bottom: 0.5em;
+          @include b.desktop-up {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+          }
+        }
+
+        &-fig {
+
+        }
+
+        &-image {
+
+        }
+      }
+    }
+  }
+}
