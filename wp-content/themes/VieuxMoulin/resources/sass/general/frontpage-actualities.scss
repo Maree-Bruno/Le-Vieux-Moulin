@@ -1,19 +1,18 @@
 @use '../settings/breakpoints.scss' as b;
+
 .frontpage-actualities {
   margin: 10% 10px;
   gap: 1em;
   @include b.desktop-up {
-  gap: 2em;
-  margin: 5% 80px;
-  }
-  &-title {
-    @include b.desktop-up {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-    }
+    gap: 2em;
+    margin: 5% 80px;
   }
 
-  &-container{
+  &-title {
+
+  }
+
+  &-container {
     overflow-x: scroll;
     gap: 2em;
     overflow-y: hidden;
@@ -31,18 +30,28 @@
     border-radius: 24px;
     padding-bottom: 1em;
     transition: box-shadow var(--transition);
-    &:hover{
-      box-shadow:inset 0px 0px 0px 3px var(--text);
+    box-shadow: inset 0px 0px 0px 1px var(--text);
+
+    &:hover {
+      box-shadow: inset 0px 0px 0px 3px var(--text);
     }
+
     @include b.desktop-up {
       min-width: 600px;
       min-height: 700px;
     }
+
     &-link {
 
     }
 
     &-image {
+      transition: box-shadow var(--transition);
+      box-shadow: inset 0px 0px 0px 1px var(--text);
+
+      &:hover {
+        box-shadow: inset 0px 0px 0px 3px var(--text);
+      }
       min-width: 300px;
       max-width: 300px;
       max-height: 100px;
@@ -61,7 +70,7 @@
     &-title {
       color: var(--text);
       @include b.desktop-up {
-       font-size: 2rem;
+        font-size: 2rem;
         margin: 10% 0;
       }
     }
@@ -79,6 +88,7 @@
       @include b.desktop-up {
         align-self: center;
       }
+
       & > p {
         color: var(--text);
         @extend .text-sm;

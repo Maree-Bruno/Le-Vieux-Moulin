@@ -10,8 +10,19 @@
 	the_row(); ?>
 	<?php if ( get_row_layout() === 'homepage_layout' ): ?>
 	<section class="hero flex flex-col content-center">
-		<div class="hero-background-image flex justify-center content-center">
-			<h2 class="hero-title font-bigtitle text-3xl">Le Vieux Moulin <strong class="text-xl">SRG</strong></h2>
+		<div>
+			<?php
+			$image = get_sub_field( 'background-image' );
+			if ( ! empty( $image ) ): ?>
+			<figure class="hero-fig">
+				<div class="hero-deco"></div>
+				<?= responsive_image( $image, [
+					'lazy'  => 'eager',
+					'class' => 'hero-image',
+				] ) ?>
+				<?php endif ?>
+				<h2 class="hero-title font-bigtitle text-3xl">Le Vieux Moulin <strong class="text-xl">SRG</strong></h2>
+
 		</div>
 		<div class="hero-description text-xl">
 			<?php the_sub_field( 'description' ); ?>
@@ -82,11 +93,11 @@
 			<?php the_sub_field( 'description_welcome_family' ); ?>
 		</div>
 		<?php if ( have_rows( 'welcome_family' ) ): ?>
-			<ul class="foster-family-ul flex flex-col">
+			<ul class="foster-family-ul flex flex-col justify-center content-center">
 				<?php while ( have_rows( 'welcome_family' ) ): the_row(); ?>
 					<li class="foster-family-li">
 						<h3 class="foster-family-li-title font-subtitle text-xl"><?php the_sub_field( 'title' );
-						?></h3>
+							?></h3>
 						<div class="foster-family-li-description">
 							<?php the_sub_field( 'description' ); ?>
 						</div>

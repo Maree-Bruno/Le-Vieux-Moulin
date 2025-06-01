@@ -3,14 +3,14 @@
 <head>
 	<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title><?php bloginfo( 'name' );
 		wp_title( $sep = '·' ) ?></title>
 	<link rel="stylesheet" href="<?= vieuxmoulin_asset( 'css/main.css' ); ?>">
-	<script src="<?= vieuxmoulin_asset( 'js/main.js' ) ?>"></script>
+	<script defer src="<?= vieuxmoulin_asset( 'js/main.js' ) ?>"></script>
 	<?php wp_head(); ?>
-	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 	<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
@@ -23,7 +23,9 @@
 	<h1 class="sr-only"><?php bloginfo( 'name' ); ?></h1>
 	<nav class="nav flex flex-row content-center justify-evenly">
 		<h2 class="sr-only">Main navigation</h2>
-		<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'front-page' ) ) ?>" class="nav-logo">
+		<a title="Vers la page d'accueil" href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'front-page' ) )
+		?>"
+		   class="nav-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" width="238" height="173" viewBox="0 0 238 173" fill="none">
 				<path d="M158.959 10.5809L152.454 9.75412C151.358 9.61485 150.357 10.3902 150.218 11.486L148.06 28.4648C147.921 29.5606 148.696 30.5617 149.792 30.701L156.297 31.5278C157.393 31.6671 158.394 30.8917 158.533 29.796L160.691 12.8171C160.831 11.7214 160.055 10.7202 158.959 10.5809Z"
 				      fill="#FFD000"/>

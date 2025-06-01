@@ -79,7 +79,7 @@
         }
 
         &-input {
-          border: none;
+          border: var(--text) 2px solid;
           min-height: 40px;
           border-radius: 40px;
           padding: 10px 15px;
@@ -90,7 +90,7 @@
         }
 
         &-textarea {
-          border: none;
+          border: var(--text) 2px solid;
           border-radius: 10px;
           padding: 10px 15px;
           @include b.desktop-up {
@@ -100,6 +100,9 @@
           }
         }
       }
+    }
+    &-button {
+      border: none;
     }
   }
 }

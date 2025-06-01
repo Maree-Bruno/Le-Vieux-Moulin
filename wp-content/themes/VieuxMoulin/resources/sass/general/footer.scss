@@ -8,7 +8,6 @@
     height: 110%;
     display: block;
     margin: 0;
-
   }
 
   &-logo {
@@ -39,7 +38,7 @@
   &-container {
     padding: 1em;
     gap: 1em;
-    background-color: var(--green);
+    background-color: var(--green-grass);
     @include b.desktop-up {
       flex-direction: row;
     }
@@ -116,7 +115,7 @@
     }
   }
   &-lower{
-    background-color: var(--green);
+    background-color: var(--green-grass);
     display: block;
     margin: 0;
     padding: 1em;

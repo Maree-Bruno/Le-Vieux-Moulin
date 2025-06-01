@@ -15,6 +15,10 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'widgets' );
 function my_remove_admin_menus(): void {
 	remove_menu_page( 'edit-comments.php' );
+	remove_menu_page('edit.php');
+	remove_menu_page('themes.php');
+	//remove_menu_page('plugins.php');
+	//remove_menu_page('edit.php?post_type=acf-field-group');
 }
 
 add_action( 'admin_menu', 'my_remove_admin_menus' );
