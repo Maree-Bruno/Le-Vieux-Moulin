@@ -1,0 +1,210 @@
+@use '../settings/breakpoints.scss' as b;
+
+.single-house {
+  &-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    @include b.desktop-up {
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+  }
+
+  &-deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100dvw;
+    min-height: 50dvh;
+    @include b.desktop-up {
+      min-height: 80dvh;
+    }
+  }
+
+  &-fig {
+    position: relative;
+  }
+
+  &-image {
+    width: 100dvw;
+    height: 50dvh;
+    object-fit: cover;
+    @include b.desktop-up {
+      min-height: 80dvh;
+    }
+  }
+
+  &-history {
+    margin: 5% 10px;
+    @include b.desktop-up {
+      margin: 5% 80px;
+    }
+
+    &-title {
+      @include b.desktop-up {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      padding: 1rem;
+    }
+
+    &-row {
+      grid-template-columns: 1fr;
+      @include b.desktop-up {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        align-items: center;
+        gap: 2rem;
+
+        &-left {
+          .single-house-history-fig {
+            @include b.tablet-up {
+              order: 1;
+            }
+          }
+        }
+        &-right {
+          .single-house-history-fig {
+            order: 2;
+          }
+
+          .single-house-history-description {
+            order: 1;
+          }
+        }
+      }
+
+    }
+
+    &-fig {
+      width: 100%;
+    }
+
+    &-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &-description {
+      padding: 1rem;
+
+      & > p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &-today {
+    margin: 5% 10px;
+    @include b.desktop-up {
+      margin: 5% 80px;
+    }
+
+    &-title {
+      margin-bottom: 2rem;
+      @include b.desktop-up {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    &-gallery {
+      max-width: 100%;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      overflow-x: scroll;
+      @include b.tablet-up {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(220px, 1fr));
+        margin: 0 2rem;
+        overflow: hidden;
+        max-width: 2000px;
+      }
+
+      &-link {
+
+        transition: transform 0.3s ease;
+        min-width: 100px;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+
+    &-fig {
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &-description {
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 1rem;
+    }
+  }
+
+  &-flat {
+    margin: 5% 10px;
+    @include b.desktop-up {
+      margin: 5% 80px;
+    }
+
+    &-title {
+      @include b.desktop-up {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    &-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 1rem;
+    }
+  }
+
+  &-conclusion {
+    margin: 5% 10px;
+    @include b.desktop-up {
+      margin: 5% 80px;
+    }
+
+    &-description {
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 1rem;
+    }
+  }
+}

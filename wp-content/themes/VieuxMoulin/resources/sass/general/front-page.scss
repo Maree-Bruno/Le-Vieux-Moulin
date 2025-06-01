@@ -5,18 +5,40 @@
   @include b.tablet-up {
     gap: 1.5em;
   }
-
-  &-background-image {
-    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png"), url('/wp-content/themes/VieuxMoulin/resources/img/vm-neige.jpg');
+  &-deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/wp-content/themes/VieuxMoulin/resources/img/filter.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100dvw;
-    min-height: 80dvh;
+    min-height: 50dvh;
+    @include b.desktop-up {
+      min-height: 80dvh;
+    }
+  }
 
+  &-fig {
+    position: relative;
+  }
+
+  &-image {
+    width: 100dvw;
+    height: 50dvh;
+    object-fit: cover;
+    @include b.desktop-up {
+      min-height: 80dvh;
+    }
   }
 
   &-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
     color: var(--white);
     @include b.desktop-up {
       font-size: 3.75rem;
@@ -43,7 +65,6 @@
   }
 
   &-button {
-    color: var(--white);
     transition: scale var(--transition);
     @include b.desktop-up {
       font-size: 1.5rem;
@@ -146,6 +167,12 @@
     counter-reset: step 0;
     margin-top: 5%;
     gap: 1em;
+    @include b.desktop-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      justify-items: center;
+    }
   }
 
   &-li {
@@ -154,11 +181,11 @@
     @include b.tablet-up {
       max-width: 350px;
       &:nth-child(even) {
-        align-self: flex-end;
-        margin-right: 10%;
+
+        align-self: flex-start;
       }
       &:nth-child(odd) {
-        align-self: flex-start;
+        align-self: flex-end;
         margin-left: 10%;
       }
     }

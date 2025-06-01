@@ -32,6 +32,7 @@
     padding-bottom: 1em;
     transition: box-shadow var(--transition);
     margin-bottom: 2em;
+    box-shadow: inset 0px 0px 0px 1px var(--text);
     @include b.tablet-up {
       width: 100%;
       max-height: none;

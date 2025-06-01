@@ -5,9 +5,9 @@
 ?>
 <?php get_header(); ?>
 	<h2 class="about-title font-bigtitle text-3xl"><?php the_field( 'title' ) ?></h2>
-	<section class="about flex flex-col-reverse justify-between">
+	<section class="about flex flex-col-reverse justify-around">
+		<h3 class="sr-only">Description du Vieux Moulin</h3>
 		<div class="about-content flex flex-col justify-evenly">
-			<h3 class="sr-only">Description du Vieux Moulin</h3>
 			<div class="about-description"><?php the_field( 'description' ) ?></div>
 			<a href="<?= get_post_type_archive_link( 'houses' ) ?>" class="button
 			button-red
@@ -16,7 +16,7 @@
 		<?php
 		$image = get_field( 'image' );
 		if ( $image ): ?>
-			<figure>
+			<figure class="about-fig">
 				<?= responsive_image( $image, [
 					'lazy'  => 'lazy',
 					'class' => 'about-image',
@@ -24,7 +24,7 @@
 			</figure>
 		<?php endif; ?>
 	</section>
-	<div class="value-objectives flex flex-col justify-between">
+	<div class="value-objectives flex flex-col justify-center">
 		<section class="value flex flex-col">
 			<h3 class="value-title font-bigtitle text-2xl">Nos <strong class="brush font-brush brush-bigtitle
 		brush-blue">valeurs</strong>
@@ -52,7 +52,7 @@
 						$position = get_sub_field( 'image_position' );
 						?>
 						<div class="routine-block flex flex-col-reverse routine-image-<?php echo esc_attr( $position );
-						?>">
+						?> justify-center">
 							<?php if ( ( $position === 'right' && $img ) || ( $position === 'left' && $img ) ) : ?>
 								<figure class="routine-fig">
 									<?= responsive_image( $img, [ 'lazy' => 'lazy', 'class' => 'routine-image' ] ) ?>
