@@ -239,8 +239,9 @@ function responsive_image($image, $settings): bool|string
 	$image_post = get_post($image_id);
 	$title = $image_post->post_title ?? '';
 	$name = $image_post->post_name ?? '';
-	$width = $image_post->width ?? '';
-	$height = $image_post->height ?? '';
+	$metadata = wp_get_attachment_metadata( $image_id );
+	$width    = $metadata['width'] ?? '';
+	$height   = $metadata['height'] ?? '';
 
 	$src = wp_get_attachment_image_url($image_id, 'full');
 	$srcset = wp_get_attachment_image_srcset($image_id, 'full');
