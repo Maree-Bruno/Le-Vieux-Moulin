@@ -1,0 +1,14 @@
+.error-page {
+  margin: 5%;
+  gap:2em;
+  &-title {
+    @extend .text-5xl
+  }
+  &-container{
+
+  }
+  &-text{
+    @extend .text-3xl;
+    max-width: 1000px;
+  }
+}
