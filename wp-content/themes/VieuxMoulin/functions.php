@@ -219,42 +219,43 @@ function vieuxmoulin_session_get( string $key ) {
 	return null;
 }
 
-function responsive_image( $image, $settings ): bool|string {
-	if ( empty( $image ) ) {
+function responsive_image($image, $settings): bool|string
+{
+	if (empty($image)) {
 		return '';
 	}
 
 	$image_id = '';
 
-	if ( is_numeric( $image ) ) {
-		// si c'est un nombre, on considère que cela s'agit d'un ID
+	if (is_numeric($image)) {
 		$image_id = $image;
-	} elseif ( is_array( $image ) && isset( $image['ID'] ) ) {
-		// Si c'est un tableau associatif contenant la clé ID, on récupère cet ID
+	} elseif (is_array($image) && isset($image['ID'])) {
 		$image_id = $image['ID'];
 	} else {
-		return '';
+		return ''; // Aucun ID valide
 	}
 
-// Récupération des informations de l'image depuis la base de données.
-	$alt        = get_post_meta( $image_id, '_wp_attachment_image_alt', true ); // Attribut alt
-	$image_post = get_post( $image_id ); // Object WP_Post de l'image
-	$title      = $image_post->post_title ?? '';
-	$name       = $image_post->post_name ?? '';
+	$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+	$image_post = get_post($image_id);
+	$title = $image_post->post_title ?? '';
+	$name = $image_post->post_name ?? '';
+	$width = $image_post->width ?? '';
+	$height = $image_post->height ?? '';
 
-// Récupération des URLS et attributs pour l'image en taille "full"
-// Wordpress génère automatiquement un srcset basé sur les tailles existantes
-	$src    = wp_get_attachment_image_url( $image_id, 'full' );
-	$srcset = wp_get_attachment_image_srcset( $image_id, 'full' );
-	$sizes  = $settings['custom_sizes'] ?? wp_get_attachment_image_sizes( $image_id, 'full' );
+	$src = wp_get_attachment_image_url($image_id, 'full');
+	$srcset = wp_get_attachment_image_srcset($image_id, 'full');
 
-	if ( empty( $settings['custom_sizes'] ) ) {
-		$sizes = '{min-width: 800px} 640px, 100dvw';
+	// Priorité à un "sizes" personnalisé
+	$sizes = $settings['custom_sizes'] ?? wp_get_attachment_image_sizes($image_id, 'full');
+
+	// Ex : (min-width: 920px) 620px, 100vw
+	if (empty($settings['custom_sizes'])) {
+		// Valeur par défaut : image prend toute la largeur en dessous de 920px, et 620px au-delà
+		$sizes = '(min-width: 920px) 620px, 100vw';
 	}
-// Gestion de l'attribut de chargement "lazy" ou "eager" selon les paramètres.
+
 	$lazy = $settings['lazy'] ?? 'eager';
 
-// Gestion des class (si des class sont fournies dans $settings).
 	$class = '';
 	if ( ! empty( $settings['class'] ) ) {
 		$class = is_array( $settings['class'] ) ? implode( ' ', $settings['class'] ) : $settings['class'];
@@ -264,14 +265,16 @@ function responsive_image( $image, $settings ): bool|string {
 	?>
 	<picture>
 		<img
-				src="<?= esc_url( $src ) ?>"
-				alt="<?= esc_attr( $alt ) ?>"
-				loading="<?= esc_attr( $lazy ) ?>"
-				srcset="<?= esc_attr( $srcset ) ?>"
-				sizes="<?= esc_attr( $sizes ) ?>"
-				class="<?= esc_attr( $class ) ?>">
+				src="<?= esc_url($src) ?>"
+				alt="<?= esc_attr($alt) ?>"
+				loading="<?= esc_attr($lazy) ?>"
+				srcset="<?= esc_attr($srcset) ?>"
+				sizes="<?= esc_attr($sizes) ?>"
+				class="<?= esc_attr($class) ?>"
+				width="<?= esc_attr($width) ?>"
+				height="<?= esc_attr($height) ?>"
+		>
 	</picture>
 	<?php
 	return ob_get_clean();
 }
-
