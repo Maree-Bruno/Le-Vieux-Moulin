@@ -111,7 +111,8 @@
 				<?php endforeach; ?>
 				<li class="nav-list-item-button">
 					<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-contact' ) ) ?>"
-					   class="nav-list-button button button-green text-xl font-subtitle" title="Vous allez être redirigé vers
+					   class="nav-list-link button button-green text-xl font-subtitle" title="Vous allez être redirigé
+					   vers
 				   la page
 				   contact">Contactez-nous
 						!</a>
@@ -119,7 +120,7 @@
 				<li>
 
 					<a href="<?= get_the_permalink( vieuxmoulin_get_template_page( 'template-donation' ) ) ?>"
-					   class="nav-list-button button button-yellow text-xl font-subtitle" title="Vous allez être redirigé
+					   class="nav-list-link button button-yellow text-xl font-subtitle" title="Vous allez être redirigé
 				   vers
 				   la page de
 				   soutien">Soutenez-nous !</a>

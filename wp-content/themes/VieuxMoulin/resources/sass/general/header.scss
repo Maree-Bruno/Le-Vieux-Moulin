@@ -65,21 +65,15 @@
       text-decoration: none;
       color: var(--text);
       transition: scale var(--transition);
-
       &:hover {
         scale: 1.2;
-
       }
     }
 
     &-button {
       text-decoration: none;
-      transition: scale var(--transition);
-
-      &:hover {
-        scale: 1.2;
-      }
     }
+
 
     &-icon {
       & > svg path {

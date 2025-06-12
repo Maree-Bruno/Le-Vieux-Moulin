@@ -1,32 +1,42 @@
 @use '../settings/breakpoints.scss' as b;
 
+@mixin button-style($bg-color) {
+  background-color: $bg-color;
+  border-radius: 10px;
+  padding: 8px 16px;
+  color: black;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #FFFFF8;
+    border-color: $bg-color;
+    color: black;
+  }
+}
+
 .button {
   color: var(--text);
+  transition: all 0.3s ease;
+
   @include b.desktop-up {
     font-size: 1.5rem;
     line-height: 2rem;
   }
+
   &-green {
-    background-color: var(--green);
-    border-radius: 10px;
-    padding: 8px 16px;
+    @include button-style(var(--green));
   }
 
   &-yellow {
-    background-color: var(--yellow);
-    border-radius: 10px;
-    padding: 8px 16px;
+    @include button-style(var(--yellow));
   }
 
   &-blue {
-    background-color: var(--blue);
-    border-radius: 10px;
-    padding: 8px 16px;
+    @include button-style(var(--blue));
   }
 
   &-red {
-    background-color: var(--red);
-    border-radius: 10px;
-    padding: 8px 16px;
+    @include button-style(var(--red));
   }
 }

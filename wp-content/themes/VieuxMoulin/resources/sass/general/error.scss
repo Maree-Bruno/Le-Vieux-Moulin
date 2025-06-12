@@ -2,13 +2,15 @@
   margin: 5%;
   gap:2em;
   &-title {
-    @extend .text-5xl
+    font-size: 3rem;
+    line-height: 1;
   }
   &-container{
 
   }
   &-text{
-    @extend .text-3xl;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
     max-width: 1000px;
   }
 }
