@@ -1,7 +1,6 @@
-import {fancybox} from "./fancybox/fancybox";
 import {Game} from "./bubble/Game";
+import {Fancybox} from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-window.addEventListener("Load", () => {
-    new Game();
-    fancybox();
-});
+Fancybox.bind('[data-fancybox="gallery"]', {});
+new Game();

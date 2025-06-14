@@ -1,7 +1,7 @@
 import {Shape} from "./Shape";
-import {iColor} from "../types/iColor";
-import {iDrawable} from "../types/iDrawable";
-import {Vector} from "../Vector";
+import {iColor} from "./iColor";
+import {iDrawable} from "./iDrawable";
+import {Vector} from "./Vector";
 
 export class Circle extends Shape implements iDrawable {
     radius: number;

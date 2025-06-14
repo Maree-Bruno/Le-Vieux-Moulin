@@ -8,14 +8,8 @@
 	<title><?php bloginfo( 'name' );
 		wp_title( $sep = '·' ) ?></title>
 	<link rel="stylesheet" href="<?= vieuxmoulin_asset( 'css/main.css' ); ?>">
-	<script defer src="<?= vieuxmoulin_asset( 'js/main.js' ) ?>"></script>
+	<script async defer src="<?= vieuxmoulin_asset( 'js/main.js' ) ?>"></script>
 	<?php wp_head(); ?>
-	<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-	<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-	/>
-
 </head>
 <body class="body font-text">
 <?php wp_body_open(); ?>

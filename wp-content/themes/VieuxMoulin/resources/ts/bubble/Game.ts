@@ -1,7 +1,7 @@
-import {Animation} from "../framework25/Animation";
+import {Animation} from "./Animation";
 import {Bubbles} from "./Bubbles";
 import {settings} from "./settings";
-import {randomFloat, randomInt} from "../framework25/helpers/random";
+import {randomFloat} from "./random";
 
 export class Game {
     private canvas: HTMLCanvasElement;
@@ -18,6 +18,7 @@ export class Game {
         this.addEventListeners();
         this.initBubbles();
         this.animation.start();
+        this.manageBubbleLifecycle();
     }
 
     resizeCanvas() {
@@ -30,9 +31,22 @@ export class Game {
             this.resizeCanvas();
         });
     }
+
     private initBubbles() {
         for (let i = 0; i < settings.bubbles; i++) {
             this.animation.registeriAnimatable(new Bubbles(this.ctx, this.canvas, randomFloat(1, 360)));
+        }
+    }
+
+    private manageBubbleLifecycle() {
+        const currentCount = this.animation.iAnimatables.length;
+        if (currentCount >= settings.bubbles) {
+            // Marque la première bulle pour suppression
+            this.animation.iAnimatables[0].shouldBeRemoved = true;
+
+            // Ajoute une nouvelle bulle
+            const newBubble = new Bubbles(this.ctx, this.canvas, randomFloat(1, 360));
+            this.animation.registeriAnimatable(newBubble);
         }
     }
 }

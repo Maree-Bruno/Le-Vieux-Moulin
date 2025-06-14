@@ -1,9 +1,9 @@
-import {Circle} from "../framework25/shapes/Circle";
-import {iAnimatable} from "../framework25/types/iAnimatable";
-import {Vector} from "../framework25/Vector";
-import {randomFloat, randomInt} from "../framework25/helpers/random";
+import {Circle} from "./Circle";
+import {iAnimatable} from "./iAnimatable";
+import {Vector} from "./Vector";
+import {randomFloat, randomInt} from "./random";
 import {settings} from "./settings";
-import {Hsla} from "../framework25/colors/Hsla";
+import {Hsla} from "./Hsla";
 
 export class Bubbles extends Circle implements iAnimatable {
     private speed: Vector;

@@ -9,4 +9,8 @@ export const settings = {
     yellow: '#FFD000',
     blue: '#3A86FF',
     green: '#43A047',
+    // default color value for HSL and RGB channels
+    defaultColorValue: 0,
+    // max count of elements that are unnecessary animate
+    maxUnnecessaryAnimatable: 5
 }

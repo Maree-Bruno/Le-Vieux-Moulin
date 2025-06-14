@@ -1,4 +1,4 @@
-import {iPosition} from "./types/iPosition";
+import {iPosition} from "./iPosition";
 
 export class Vector implements iPosition {
     x: number;

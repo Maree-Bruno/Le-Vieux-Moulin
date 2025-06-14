@@ -1,5 +1,5 @@
-import {settings} from "../settings";
-import {iColor} from "../types/iColor";
+import {settings} from "./settings";
+import {iColor} from "./iColor";
 
 export class Hsla implements iColor {
 

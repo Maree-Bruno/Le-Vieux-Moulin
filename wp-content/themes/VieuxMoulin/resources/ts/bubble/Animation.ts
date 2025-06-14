@@ -1,5 +1,6 @@
-import {iAnimatable} from "./types/iAnimatable";
+
 import {settings} from "./settings";
+import {iAnimatable} from "./iAnimatable";
 
 export class Animation {
     private canvas: HTMLCanvasElement;
