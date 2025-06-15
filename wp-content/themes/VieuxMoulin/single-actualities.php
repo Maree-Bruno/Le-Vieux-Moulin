@@ -25,11 +25,11 @@
 		<?php endif; ?>
 	</section>
 
-	<section class="single-actuality-gallery">
-		<h3 class="single-actuality-gallery-title font-subtitle text-3xl">Galerie</h3>
-		<div class="single-actuality-gallery-container">
-			<?php if ( get_field( 'need_gallery' ) === true ) :
-				$images = get_field( 'gallery' );
+	<?php if ( get_field( 'need_gallery' ) === true ) : ?>
+		<section class="single-actuality-gallery">
+			<h3 class="single-actuality-gallery-title font-subtitle text-3xl">Galerie</h3>
+			<div class="single-actuality-gallery-container">
+				<?php $images = get_field( 'gallery' );
 				if ( $images ): ?>
 					<?php foreach ( $images as $image ): ?>
 						<a href="<?= esc_url( $image['sizes']['large'] ); ?>" data-fancybox="gallery"
@@ -41,10 +41,10 @@
 							</figure>
 						</a>
 					<?php endforeach; ?>
-				<?php endif;
-			endif; ?>
-		</div>
-	</section>
+				<?php endif; ?>
+			</div>
+		</section>
+	<?php endif; ?>
 </section>
 
 <?php get_footer(); ?>
